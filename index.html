@@ -631,6 +631,30 @@
             line-height: 1.35;
         }
 
+        /* Extra section shown only on mobile (mirrors sidebar secondary content) */
+        body.theme-executive .exec-main-extra { display: none; }
+
+        /* Light-panel overrides for sidebar elements inside exec-main-extra */
+        body.theme-executive .exec-main-extra .exec-sidebar-label {
+            color: #0f172a;
+            border-bottom-color: #e5e7eb;
+        }
+
+        body.theme-executive .exec-main-extra .exec-skill-chip {
+            background: #f1f5f9;
+            border-color: #e2e8f0;
+            color: #374151;
+        }
+
+        body.theme-executive .exec-main-extra .exec-lang-row {
+            color: #374151;
+            border-bottom-color: #e5e7eb;
+        }
+
+        body.theme-executive .exec-main-extra .exec-edu-degree { color: #0f172a; }
+        body.theme-executive .exec-main-extra .exec-edu-school { color: #6b7280; }
+        body.theme-executive .exec-main-extra .exec-edu-meta  { color: #9ca3af; }
+
         /* ---- EXECUTIVE THEME — MOBILE ---- */
         @media (max-width: 768px) {
             body.theme-executive .cv-container {
@@ -639,7 +663,74 @@
                 box-shadow: none;
             }
 
-            body.theme-executive .exec-sidebar { padding: 1.75rem 1.25rem; }
+            /* Compact dark identity strip */
+            body.theme-executive .exec-sidebar {
+                padding: 1.25rem 1.25rem 1.4rem;
+            }
+
+            body.theme-executive .exec-sidebar-head {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 0.9rem;
+            }
+
+            body.theme-executive .exec-photo-wrap {
+                width: 58px;
+                height: 58px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            body.theme-executive .exec-name {
+                font-size: 1.1rem;
+                letter-spacing: 0.04em;
+            }
+
+            body.theme-executive .exec-track-title {
+                margin-bottom: 0;
+                font-size: 0.63rem;
+            }
+
+            body.theme-executive .exec-rule {
+                margin-bottom: 0.9rem;
+            }
+
+            /* Contact wraps into a 2-column grid */
+            body.theme-executive .exec-sidebar-section {
+                margin-bottom: 0;
+            }
+
+            body.theme-executive .exec-sidebar-section .exec-sidebar-label {
+                display: none;
+            }
+
+            body.theme-executive .exec-contact-items-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.2rem 1.25rem;
+            }
+
+            body.theme-executive .exec-contact-item {
+                margin-bottom: 0;
+                font-size: 0.72rem;
+            }
+
+            /* Hide skills/languages/education from sidebar; shown in exec-main-extra */
+            body.theme-executive .exec-sidebar-secondary { display: none; }
+
+            /* Show the relocated sections in white panel */
+            body.theme-executive .exec-main-extra {
+                display: block;
+                border-top: 1px solid #e5e7eb;
+                margin-top: 0.5rem;
+                padding-top: 1.75rem;
+            }
+
+            body.theme-executive .exec-main-extra .exec-sidebar-section {
+                margin-bottom: 1.5rem;
+            }
+
             body.theme-executive .exec-main { padding: 1.75rem 1.25rem; }
 
             body.theme-executive .exec-exp-header {
@@ -651,8 +742,8 @@
         }
 
         @media (max-width: 480px) {
-            body.theme-executive .exec-sidebar,
-            body.theme-executive .exec-main { padding: 1.25rem 1rem; }
+            body.theme-executive .exec-sidebar { padding: 1rem; }
+            body.theme-executive .exec-main   { padding: 1.25rem 1rem; }
         }
 
         /* ---- SETTINGS PANEL — MOBILE ---- */
@@ -890,44 +981,59 @@
             const contact   = cvData.contact;
             const contactLabel = currentLang === 'de' ? 'Kontakt' : 'Contact';
 
+            // Secondary sidebar content — rendered in sidebar (desktop) and
+            // exec-main-extra (mobile). Same markup, different CSS context.
+            const secondarySections = `
+                <div class="exec-sidebar-section">
+                    <div class="exec-sidebar-label">${data.labels.skills}</div>
+                    <div class="exec-skill-wrap">
+                        ${data.skills.map(s => `<span class="exec-skill-chip">${s}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="exec-sidebar-section">
+                    <div class="exec-sidebar-label">${data.labels.languages}</div>
+                    ${data.languages.map(l => `<div class="exec-lang-row">${l}</div>`).join('')}
+                </div>
+                <div class="exec-sidebar-section">
+                    <div class="exec-sidebar-label">${data.labels.education}</div>
+                    ${data.education.map(edu => `
+                        <div class="exec-edu-item">
+                            <div class="exec-edu-degree">${edu.degree}</div>
+                            <div class="exec-edu-school">${edu.school}</div>
+                            <div class="exec-edu-meta">${edu.date} · ${edu.location}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
             document.getElementById('cv-root').innerHTML = `
                 <div class="exec-sidebar">
-                    <div class="exec-photo-wrap">
-                        <img src="${contact.photo}" alt="${contact.name}">
+                    <!-- Identity block: stacks on desktop, flexes inline on mobile -->
+                    <div class="exec-sidebar-head">
+                        <div class="exec-photo-wrap">
+                            <img src="${contact.photo}" alt="${contact.name}">
+                        </div>
+                        <div class="exec-sidebar-identity">
+                            <div class="exec-name">${contact.name}</div>
+                            <div class="exec-track-title">${trackData.title}</div>
+                        </div>
                     </div>
-                    <div class="exec-name">${contact.name}</div>
-                    <div class="exec-track-title">${trackData.title}</div>
                     <div class="exec-rule"></div>
 
+                    <!-- Contact: always in sidebar -->
                     <div class="exec-sidebar-section">
                         <div class="exec-sidebar-label">${contactLabel}</div>
-                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.location}</div>
-                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.phone}</div>
-                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.email}</div>
-                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.linkedin}</div>
-                    </div>
-
-                    <div class="exec-sidebar-section">
-                        <div class="exec-sidebar-label">${data.labels.skills}</div>
-                        <div class="exec-skill-wrap">
-                            ${data.skills.map(s => `<span class="exec-skill-chip">${s}</span>`).join('')}
+                        <div class="exec-contact-items-wrap">
+                            <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.location}</div>
+                            <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.phone}</div>
+                            <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.email}</div>
+                            <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.linkedin}</div>
                         </div>
                     </div>
 
-                    <div class="exec-sidebar-section">
-                        <div class="exec-sidebar-label">${data.labels.languages}</div>
-                        ${data.languages.map(l => `<div class="exec-lang-row">${l}</div>`).join('')}
-                    </div>
-
-                    <div class="exec-sidebar-section">
-                        <div class="exec-sidebar-label">${data.labels.education}</div>
-                        ${data.education.map(edu => `
-                            <div class="exec-edu-item">
-                                <div class="exec-edu-degree">${edu.degree}</div>
-                                <div class="exec-edu-school">${edu.school}</div>
-                                <div class="exec-edu-meta">${edu.date} · ${edu.location}</div>
-                            </div>
-                        `).join('')}
+                    <!-- Secondary: desktop only; hidden on mobile, shown in exec-main-extra -->
+                    <div class="exec-sidebar-secondary">
+                        ${secondarySections}
                     </div>
                 </div>
 
@@ -958,6 +1064,11 @@
                         <div class="exec-comp-grid">
                             ${trackData.competencies.map(c => `<div class="exec-comp-item">${c}</div>`).join('')}
                         </div>
+                    </div>
+
+                    <!-- Mobile only: skills/languages/education relocated from sidebar -->
+                    <div class="exec-main-extra">
+                        ${secondarySections}
                     </div>
                 </div>
             `;
