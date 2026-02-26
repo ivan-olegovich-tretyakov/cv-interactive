@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan Tretyakov - Executive CV</title>
     <style>
-        /* NORDIC / JAPANESE MINIMALIST DESIGN */
+        /* ============================================================
+           THEME 1: NORDIC / JAPANESE MINIMALIST (Classic)
+           ============================================================ */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
         :root {
@@ -86,7 +88,7 @@
         }
 
         .header-left { flex: 1; }
-        
+
         .name {
             font-size: 2.5rem;
             font-weight: 700;
@@ -117,7 +119,7 @@
             height: 100px;
             border-radius: 50%;
             overflow: hidden;
-            display: none; /* Hidden by default, toggled via JS for DE */
+            display: none;
             flex-shrink: 0;
             margin-left: 2rem;
         }
@@ -155,7 +157,7 @@
         }
 
         .item { margin-bottom: 1.5rem; }
-        
+
         .item-header {
             display: flex;
             justify-content: space-between;
@@ -188,7 +190,7 @@
         }
 
         .sidebar-section { margin-bottom: 2rem; }
-        
+
         .skill-list {
             display: flex;
             flex-wrap: wrap;
@@ -203,16 +205,491 @@
             color: var(--text-main);
         }
 
-        /* PRINT MEDIA QUERIES */
+        /* ============================================================
+           CLASSIC THEME — MOBILE RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            body:not(.theme-executive) {
+                padding: 0.75rem;
+            }
+
+            body:not(.theme-executive) .controls {
+                padding: 0.75rem 1rem;
+                gap: 0.5rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            body:not(.theme-executive) .controls-group {
+                gap: 0.4rem;
+                flex-wrap: wrap;
+            }
+
+            body:not(.theme-executive) .controls-group button {
+                flex: 1;
+                min-width: 100px;
+                padding: 0.6rem 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            body:not(.theme-executive) .cv-container {
+                padding: 1.5rem 1.25rem;
+            }
+
+            body:not(.theme-executive) .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            body:not(.theme-executive) .name {
+                font-size: 1.8rem;
+            }
+
+            body:not(.theme-executive) .title {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            body:not(.theme-executive) .contact-info {
+                flex-direction: column;
+                gap: 0.3rem;
+                font-size: 0.82rem;
+            }
+
+            body:not(.theme-executive) .contact-info .sep {
+                display: none;
+            }
+
+            body:not(.theme-executive) .profile-img-container {
+                margin-left: 0;
+                width: 80px;
+                height: 80px;
+            }
+
+            body:not(.theme-executive) .main-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            body:not(.theme-executive) .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.1rem;
+            }
+
+            body:not(.theme-executive) .date-loc {
+                text-align: left;
+                font-size: 0.8rem;
+            }
+
+            body:not(.theme-executive) .summary {
+                font-size: 0.9rem;
+                text-align: left;
+                margin-bottom: 1.5rem;
+            }
+
+            body:not(.theme-executive) .section-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body:not(.theme-executive) {
+                padding: 0.5rem;
+            }
+
+            body:not(.theme-executive) .cv-container {
+                padding: 1.25rem 1rem;
+            }
+
+            body:not(.theme-executive) .name {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ============================================================
+           THEME 2: EXECUTIVE DARK — SPLIT PANEL
+           ============================================================ */
+        body.theme-executive {
+            background: #080d1a;
+            padding: 0;
+        }
+
+        body.theme-executive .controls {
+            background: #111827;
+            border-bottom: 1px solid #1f2937;
+            border-radius: 0;
+            box-shadow: none;
+            max-width: 100%;
+            padding: 0.85rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.theme-executive .controls button {
+            background: transparent;
+            border: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.8rem;
+            padding: 0.45rem 0.9rem;
+        }
+
+        body.theme-executive .controls button:hover {
+            background: #1f2937;
+            border-color: #4b5563;
+            color: #e5e7eb;
+        }
+
+        body.theme-executive .controls button.active {
+            background: #0ea5e9;
+            border-color: #0ea5e9;
+            color: #fff;
+        }
+
+        body.theme-executive .cv-container {
+            max-width: 1020px;
+            margin: 2.5rem auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+            overflow: hidden;
+            background: transparent;
+        }
+
+        /* ---- LEFT DARK SIDEBAR ---- */
+        body.theme-executive .exec-sidebar {
+            background: #0d1117;
+            padding: 2.5rem 1.75rem;
+            border-right: 1px solid #161d2a;
+        }
+
+        body.theme-executive .exec-photo-wrap {
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #0ea5e9;
+            margin-bottom: 1.4rem;
+            box-shadow: 0 0 0 4px rgba(14,165,233,0.12);
+        }
+
+        body.theme-executive .exec-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(15%);
+        }
+
+        body.theme-executive .exec-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #f0f6ff;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        body.theme-executive .exec-track-title {
+            font-size: 0.68rem;
+            color: #0ea5e9;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+            line-height: 1.5;
+        }
+
+        body.theme-executive .exec-rule {
+            height: 1px;
+            background: linear-gradient(to right, #0ea5e9 30%, transparent);
+            margin-bottom: 1.75rem;
+        }
+
+        body.theme-executive .exec-sidebar-section {
+            margin-bottom: 1.75rem;
+        }
+
+        body.theme-executive .exec-sidebar-label {
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #0ea5e9;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #1a2235;
+        }
+
+        body.theme-executive .exec-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            font-size: 0.76rem;
+            color: #94a3b8;
+            margin-bottom: 0.55rem;
+            line-height: 1.4;
+            word-break: break-all;
+        }
+
+        body.theme-executive .exec-contact-dot {
+            width: 5px;
+            height: 5px;
+            min-width: 5px;
+            background: #0ea5e9;
+            border-radius: 50%;
+            margin-top: 0.42rem;
+        }
+
+        body.theme-executive .exec-skill-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        body.theme-executive .exec-skill-chip {
+            background: #161d2a;
+            border: 1px solid #1e2d42;
+            color: #94a3b8;
+            font-size: 0.68rem;
+            padding: 0.22rem 0.5rem;
+            border-radius: 2px;
+            letter-spacing: 0.02em;
+        }
+
+        body.theme-executive .exec-lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.76rem;
+            color: #94a3b8;
+            padding: 0.38rem 0;
+            border-bottom: 1px solid #161d2a;
+        }
+
+        body.theme-executive .exec-lang-row:last-child {
+            border-bottom: none;
+        }
+
+        body.theme-executive .exec-edu-item {
+            margin-bottom: 1rem;
+        }
+
+        body.theme-executive .exec-edu-degree {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        body.theme-executive .exec-edu-school {
+            font-size: 0.72rem;
+            color: #4b5563;
+            margin-bottom: 0.1rem;
+        }
+
+        body.theme-executive .exec-edu-meta {
+            font-size: 0.68rem;
+            color: #374151;
+        }
+
+        /* ---- RIGHT MAIN CONTENT ---- */
+        body.theme-executive .exec-main {
+            background: #ffffff;
+            padding: 2.5rem 2.25rem;
+        }
+
+        body.theme-executive .exec-main-section {
+            margin-bottom: 2.25rem;
+        }
+
+        body.theme-executive .exec-main-title {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #0d1117;
+            margin-bottom: 1rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 2px solid #0d1117;
+        }
+
+        body.theme-executive .exec-profile-text {
+            font-size: 0.875rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        /* Timeline experience */
+        body.theme-executive .exec-exp-item {
+            margin-bottom: 1.6rem;
+            padding-left: 1.2rem;
+            border-left: 2px solid #e5e7eb;
+            position: relative;
+            transition: border-left-color 0.25s;
+        }
+
+        body.theme-executive .exec-exp-item::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 7px;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            transition: border-color 0.25s, background 0.25s;
+        }
+
+        body.theme-executive .exec-exp-item:hover {
+            border-left-color: #0ea5e9;
+        }
+
+        body.theme-executive .exec-exp-item:hover::before {
+            border-color: #0ea5e9;
+            background: #0ea5e9;
+        }
+
+        body.theme-executive .exec-exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.15rem;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        body.theme-executive .exec-exp-role {
+            font-size: 0.93rem;
+            font-weight: 700;
+            color: #0d1117;
+            line-height: 1.3;
+        }
+
+        body.theme-executive .exec-exp-date {
+            font-size: 0.7rem;
+            color: #0ea5e9;
+            font-weight: 600;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+            padding-top: 0.1rem;
+        }
+
+        body.theme-executive .exec-exp-company {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-weight: 500;
+            margin-bottom: 0.55rem;
+        }
+
+        body.theme-executive .exec-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        body.theme-executive .exec-bullets li {
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.82rem;
+            color: #4b5563;
+            margin-bottom: 0.32rem;
+            line-height: 1.55;
+        }
+
+        body.theme-executive .exec-bullets li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        /* Competency grid */
+        body.theme-executive .exec-comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        body.theme-executive .exec-comp-item {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-left: 3px solid #0ea5e9;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.78rem;
+            color: #374151;
+            line-height: 1.35;
+        }
+
+        /* ---- EXECUTIVE THEME — MOBILE ---- */
+        @media (max-width: 768px) {
+            body.theme-executive .controls {
+                padding: 0.75rem 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+
+            body.theme-executive .controls .controls-group {
+                flex-wrap: wrap;
+            }
+
+            body.theme-executive .controls .controls-group button {
+                flex: 1;
+                min-width: 90px;
+                font-size: 0.75rem;
+                padding: 0.55rem 0.4rem;
+            }
+
+            body.theme-executive .cv-container {
+                grid-template-columns: 1fr;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            body.theme-executive .exec-sidebar {
+                padding: 1.75rem 1.25rem;
+            }
+
+            body.theme-executive .exec-main {
+                padding: 1.75rem 1.25rem;
+            }
+
+            body.theme-executive .exec-comp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            body.theme-executive .exec-exp-header {
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body.theme-executive .exec-sidebar,
+            body.theme-executive .exec-main {
+                padding: 1.25rem 1rem;
+            }
+        }
+
+        /* ============================================================
+           PRINT MEDIA QUERIES (applies to both themes)
+           ============================================================ */
         @media print {
             body { background: #fff; padding: 0; }
             .controls { display: none; }
             .cv-container { box-shadow: none; padding: 0; max-width: 100%; width: 100%; }
             @page { margin: 12mm 15mm; }
-            
-            /* Summary Mode (1-Page) Constraints */
+
+            /* Classic print */
             body.summary-mode .cv-container {
-                height: 297mm; /* A4 height */
+                height: 297mm;
                 overflow: hidden;
             }
             body.summary-mode .older-exp { display: none; }
@@ -220,6 +697,17 @@
             body.summary-mode .summary { margin-bottom: 1.5rem; }
             body.summary-mode .item { margin-bottom: 1rem; }
             body.summary-mode .main-grid { gap: 2rem; }
+
+            /* Executive print */
+            body.theme-executive .cv-container {
+                margin: 0;
+                grid-template-columns: 260px 1fr;
+            }
+            body.theme-executive .exec-sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            body.theme-executive.summary-mode .older-exp { display: none; }
         }
     </style>
 </head>
@@ -235,20 +723,26 @@
             <button id="btn-dig" onclick="setTrack('digital')">Digital Commercial Track</button>
         </div>
         <div class="controls-group">
+            <button id="btn-classic" class="active" onclick="setTheme('classic')">Classic</button>
+            <button id="btn-executive" onclick="setTheme('executive')">Executive Dark</button>
+        </div>
+        <div class="controls-group">
             <button onclick="exportPDF('full')">Print Full PDF</button>
             <button onclick="exportPDF('summary')">Print 1-Page Summary</button>
         </div>
     </div>
 
     <div class="cv-container" id="cv-root">
-        </div>
+    </div>
 
     <script src="cvData.js"></script>
     <script>
-        // STATE MANAGEMENT
-        let currentLang = 'en';
+        // STATE
+        let currentLang  = 'en';
         let currentTrack = 'standard';
+        let currentTheme = 'classic';
 
+        // ── SETTERS ────────────────────────────────────────────────
         function setLanguage(lang) {
             currentLang = lang;
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
@@ -263,26 +757,39 @@
             renderCV();
         }
 
-        function exportPDF(mode) {
-            if(mode === 'summary') {
-                document.body.classList.add('summary-mode');
+        function setTheme(theme) {
+            currentTheme = theme;
+            document.getElementById('btn-classic').classList.toggle('active', theme === 'classic');
+            document.getElementById('btn-executive').classList.toggle('active', theme === 'executive');
+            if (theme === 'executive') {
+                document.body.classList.add('theme-executive');
             } else {
-                document.body.classList.remove('summary-mode');
+                document.body.classList.remove('theme-executive');
             }
-            window.print();
-            // Optional: Remove class after print dialog closes
-            setTimeout(() => {
-                document.body.classList.remove('summary-mode');
-            }, 1000);
+            renderCV();
         }
 
-        // RENDERING LOGIC
-        function renderCV() {
-            const data = cvData.content[currentLang];
-            const trackData = data.tracks[currentTrack];
-            const contact = cvData.contact;
+        function exportPDF(mode) {
+            document.body.classList.toggle('summary-mode', mode === 'summary');
+            window.print();
+            setTimeout(() => document.body.classList.remove('summary-mode'), 1000);
+        }
 
-            // Render photo only for German CV per traditional DACH norms (though optional nowadays, it's a nice local touch)
+        // ── DISPATCHER ─────────────────────────────────────────────
+        function renderCV() {
+            if (currentTheme === 'executive') {
+                renderExecutive();
+            } else {
+                renderClassic();
+            }
+        }
+
+        // ── THEME 1: CLASSIC ───────────────────────────────────────
+        function renderClassic() {
+            const data      = cvData.content[currentLang];
+            const trackData = data.tracks[currentTrack];
+            const contact   = cvData.contact;
+
             const showPhotoStyle = currentLang === 'de' ? 'display: block;' : 'display: none;';
 
             const html = `
@@ -291,9 +798,9 @@
                         <div class="name">${contact.name}</div>
                         <div class="title">${trackData.title}</div>
                         <div class="contact-info">
-                            <span>${contact.location}</span> &nbsp;|&nbsp;
-                            <span>${contact.phone}</span> &nbsp;|&nbsp;
-                            <span>${contact.email}</span> &nbsp;|&nbsp;
+                            <span>${contact.location}</span><span class="sep">&nbsp;|&nbsp;</span>
+                            <span>${contact.phone}</span><span class="sep">&nbsp;|&nbsp;</span>
+                            <span>${contact.email}</span><span class="sep">&nbsp;|&nbsp;</span>
                             <span>${contact.linkedin}</span>
                         </div>
                     </div>
@@ -354,6 +861,89 @@
                             <div class="skill-list">
                                 ${data.languages.map(l => `<span class="skill-tag">${l}</span>`).join('')}
                             </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('cv-root').innerHTML = html;
+        }
+
+        // ── THEME 2: EXECUTIVE DARK ────────────────────────────────
+        function renderExecutive() {
+            const data      = cvData.content[currentLang];
+            const trackData = data.tracks[currentTrack];
+            const contact   = cvData.contact;
+
+            const contactLabel = currentLang === 'de' ? 'Kontakt' : 'Contact';
+
+            const html = `
+                <div class="exec-sidebar">
+                    <div class="exec-photo-wrap">
+                        <img src="${contact.photo}" alt="${contact.name}">
+                    </div>
+                    <div class="exec-name">${contact.name}</div>
+                    <div class="exec-track-title">${trackData.title}</div>
+                    <div class="exec-rule"></div>
+
+                    <div class="exec-sidebar-section">
+                        <div class="exec-sidebar-label">${contactLabel}</div>
+                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.location}</div>
+                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.phone}</div>
+                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.email}</div>
+                        <div class="exec-contact-item"><span class="exec-contact-dot"></span>${contact.linkedin}</div>
+                    </div>
+
+                    <div class="exec-sidebar-section">
+                        <div class="exec-sidebar-label">${data.labels.skills}</div>
+                        <div class="exec-skill-wrap">
+                            ${data.skills.map(s => `<span class="exec-skill-chip">${s}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="exec-sidebar-section">
+                        <div class="exec-sidebar-label">${data.labels.languages}</div>
+                        ${data.languages.map(l => `<div class="exec-lang-row">${l}</div>`).join('')}
+                    </div>
+
+                    <div class="exec-sidebar-section">
+                        <div class="exec-sidebar-label">${data.labels.education}</div>
+                        ${data.education.map(edu => `
+                            <div class="exec-edu-item">
+                                <div class="exec-edu-degree">${edu.degree}</div>
+                                <div class="exec-edu-school">${edu.school}</div>
+                                <div class="exec-edu-meta">${edu.date} · ${edu.location}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="exec-main">
+                    <div class="exec-main-section">
+                        <div class="exec-main-title">${data.labels.summary}</div>
+                        <p class="exec-profile-text">${trackData.profile}</p>
+                    </div>
+
+                    <div class="exec-main-section">
+                        <div class="exec-main-title">${data.labels.experience}</div>
+                        ${data.experience.map(exp => `
+                            <div class="exec-exp-item ${exp.older ? 'older-exp' : ''}">
+                                <div class="exec-exp-header">
+                                    <span class="exec-exp-role">${exp.role}</span>
+                                    <span class="exec-exp-date">${exp.date}</span>
+                                </div>
+                                <div class="exec-exp-company">${exp.company} &nbsp;·&nbsp; ${exp.location}</div>
+                                <ul class="exec-bullets">
+                                    ${exp.desc.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="exec-main-section">
+                        <div class="exec-main-title">${data.labels.competencies}</div>
+                        <div class="exec-comp-grid">
+                            ${trackData.competencies.map(c => `<div class="exec-comp-item">${c}</div>`).join('')}
                         </div>
                     </div>
                 </div>

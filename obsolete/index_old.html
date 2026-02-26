@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Tretyakov - Executive CV</title>
+    <style>
+        /* NORDIC / JAPANESE MINIMALIST DESIGN */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #000000;
+            --border-light: #eaeaea;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f5;
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 2rem;
+        }
+
+        /* CONTROLS (Hidden on Print) */
+        .controls {
+            max-width: 900px;
+            margin: 0 auto 1rem auto;
+            background: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .controls-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 1rem;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        button:hover { background: #f9f9f9; border-color: var(--accent); }
+        button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* CV CONTAINER */
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .header-left { flex: 1; }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span { display: flex; align-items: center; }
+
+        .profile-img-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: none; /* Hidden by default, toggled via JS for DE */
+            flex-shrink: 0;
+            margin-left: 2rem;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        /* LAYOUT GRID */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        /* TYPOGRAPHY & SECTIONS */
+        .section-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.3rem;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .item { margin-bottom: 1.5rem; }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
+        }
+
+        .role { font-weight: 600; font-size: 1rem; }
+        .company { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); }
+        .date-loc { font-size: 0.85rem; color: var(--text-muted); text-align: right; }
+
+        ul.bullets {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul.bullets li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        ul.bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .sidebar-section { margin-bottom: 2rem; }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            background: #f4f4f5;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            color: var(--text-main);
+        }
+
+        /* PRINT MEDIA QUERIES */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .controls { display: none; }
+            .cv-container { box-shadow: none; padding: 0; max-width: 100%; width: 100%; }
+            @page { margin: 12mm 15mm; }
+            
+            /* Summary Mode (1-Page) Constraints */
+            body.summary-mode .cv-container {
+                height: 297mm; /* A4 height */
+                overflow: hidden;
+            }
+            body.summary-mode .older-exp { display: none; }
+            body.summary-mode .education-details { display: none; }
+            body.summary-mode .summary { margin-bottom: 1.5rem; }
+            body.summary-mode .item { margin-bottom: 1rem; }
+            body.summary-mode .main-grid { gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <div class="controls-group">
+            <button id="btn-en" class="active" onclick="setLanguage('en')">English</button>
+            <button id="btn-de" onclick="setLanguage('de')">Deutsch</button>
+        </div>
+        <div class="controls-group">
+            <button id="btn-std" class="active" onclick="setTrack('standard')">FMCG RGM Track</button>
+            <button id="btn-dig" onclick="setTrack('digital')">Digital Commercial Track</button>
+        </div>
+        <div class="controls-group">
+            <button onclick="exportPDF('full')">Print Full PDF</button>
+            <button onclick="exportPDF('summary')">Print 1-Page Summary</button>
+        </div>
+    </div>
+
+    <div class="cv-container" id="cv-root">
+        </div>
+
+    <script>
+        // THE JSON DATA STRUCTURE
+        // Easily adjustable for future roles. Modify strings here.
+        const cvData = {
+            contact: {
+                name: "Ivan Tretyakov",
+                phone: "+49 162 1387742",
+                email: "tretyakovi@gmail.com",
+                linkedin: "linkedin.com/in/ivantretyakov",
+                location: "Frankfurt, Germany",
+                photo: "profile_linkedin.jpg"
+            },
+            
+            // Translations and Track Variations
+            content: {
+                en: {
+                    labels: {
+                        summary: "Executive Profile",
+                        experience: "Professional Experience",
+                        competencies: "Core Competencies",
+                        education: "Education",
+                        skills: "Technical Skills",
+                        languages: "Languages"
+                    },
+                    tracks: {
+                        standard: {
+                            title: "Head of Revenue Growth Management",
+                            profile: "Senior Commercial & Revenue Growth Leader with over 20 years of combined experience across FMCG and Technology sectors. Led RGM for DACH at Danone for 6 years, driving holistic P&L management, Price Pack Architecture, and strategic capital allocation. Expert in bridging Commercial and Finance functions to drive operating profit in complex matrix environments. Currently leveraging hands-on experience with AI-driven pricing technology (Buynomics) to bring next-generation capabilities back to enterprise leadership.",
+                            competencies: [
+                                "DACH RGM Leadership & P&L Management",
+                                "Price Pack Architecture (PPA) & Mix Management",
+                                "Strategic Annual Operating Planning (AOP)",
+                                "Trade Investment & Promo Optimization",
+                                "Commercial Finance Integration"
+                            ]
+                        },
+                        digital: {
+                            title: "VP Digital Commercial Strategy / Head of AI Pricing",
+                            profile: "Transformational Digital Commercial Leader combining deep FMCG operational expertise (Danone RGM Head) with enterprise technology leadership (Microsoft) and cutting-edge AI pricing strategies (Buynomics). Uniquely positioned to guide legacy FMCG/CPG organizations through commercial digital transformation. Proven track record of leveraging AI-driven predictive modeling and data analytics to restructure commercial terms, accelerate digital value, and significantly increase operating profit.",
+                            competencies: [
+                                "Digital Transformation & Value Acceleration",
+                                "AI-Driven Pricing Strategy & Predictive Modeling",
+                                "Enterprise SaaS Integration (TPM & Optimization)",
+                                "Data-Driven Commercial Excellence",
+                                "Cross-functional Tech & Commercial Leadership"
+                            ]
+                        }
+                    },
+                    experience: [
+                        {
+                            company: "Buynomics",
+                            role: "Director, Value Advisory & Commercial Strategy",
+                            date: "Present",
+                            location: "Frankfurt, Germany",
+                            older: false,
+                            desc: [
+                                "Guiding global CPG brands in transitioning from traditional pricing models to next-gen AI-driven predictive pricing platforms.",
+                                "Advising enterprise clients on integrating machine learning insights into their Annual Operating Planning (AOP) and trade investment strategies."
+                            ]
+                        },
+                        {
+                            company: "Danone",
+                            role: "Head of RGM DACH",
+                            date: "6 Years",
+                            location: "Frankfurt, Germany",
+                            older: false,
+                            desc: [
+                                "Orchestrated 3-Year Strategic Plans and AOP, directly impacting holistic P&L management across Germany and Austria.",
+                                "Optimized trade investment, promo mechanics, and contract conditionality with major German retail partners.",
+                                "Developed high-performing RGM teams and successfully integrated new TPM & Price Optimization systems to drive commercial excellence.",
+                                "Led transformative change management initiatives bridging the gap between Sales, Marketing, and Finance functions."
+                            ]
+                        },
+                        {
+                            company: "Philip Morris International",
+                            role: "Product Manager (MBA Internship)",
+                            date: "Jun 2014 – Sep 2014",
+                            location: "Moscow, Russia",
+                            older: true,
+                            desc: [
+                                "Evaluated strategic brand extensions and built financial models that prevented a low-yield $300M investment."
+                            ]
+                        },
+                        {
+                            company: "Microsoft",
+                            role: "Account Technology Strategist",
+                            date: "Jan 2009 – Nov 2012",
+                            location: "Moscow, Russia",
+                            older: true,
+                            desc: [
+                                "Managed a $10M sales target, collaborating with finance and operations to deliver complex enterprise solutions.",
+                                "Directed industry-specific workshops for executive C-suite customers demonstrating the business value and ROI of tech platforms."
+                            ]
+                        },
+                        {
+                            company: "TopS Consulting",
+                            role: "Head of Product",
+                            date: "Mar 2007 – Jan 2009",
+                            location: "Moscow, Russia",
+                            older: true,
+                            desc: [
+                                "Directed the full strategic planning cycle and launched innovative tech products, consistently overdelivering yearly results by 12%."
+                            ]
+                        }
+                    ],
+                    education: [
+                        {
+                            degree: "MBA",
+                            school: "IE Business School",
+                            date: "2014",
+                            location: "Madrid, Spain"
+                        },
+                        {
+                            degree: "Master of Economics & IT",
+                            school: "Moscow State University of Management",
+                            date: "2006",
+                            location: "Moscow, Russia"
+                        }
+                    ],
+                    skills: ["Excel (Power Pivot/Stats)", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics Platform", "TPM Integration"],
+                    languages: ["English (Fluent)", "German (Intermediate)", "Spanish (Professional)", "Russian (Native)", "Portuguese (Intermediate)", "Bulgarian (Professional)"]
+                },
+                
+                de: {
+                    labels: {
+                        summary: "Profil",
+                        experience: "Berufserfahrung",
+                        competencies: "Kernkompetenzen",
+                        education: "Ausbildung",
+                        skills: "IT-Kenntnisse",
+                        languages: "Sprachen"
+                    },
+                    tracks: {
+                        standard: {
+                            title: "Leiter Revenue Growth Management",
+                            profile: "Erfahrener Commercial & RGM Leader mit über 20 Jahren kombinierter Erfahrung in den Bereichen FMCG und Technologie. 6 Jahre Leitung des RGM für die DACH-Region bei Danone, verantwortlich für ganzheitliches P&L-Management, Price Pack Architecture und strategische Kapitalallokation. Experte an der Schnittstelle zwischen Vertrieb und Finanzen zur Steigerung des operativen Gewinns in komplexen Matrixorganisationen. Derzeitiger Fokus auf die Nutzung von Best-Practices im Bereich KI-gesteuerter Preisgestaltung (Buynomics), um RGM-Fähigkeiten der nächsten Generation in die Unternehmensführung einzubringen.",
+                            competencies: [
+                                "DACH RGM Leadership & P&L Management",
+                                "Price Pack Architecture (PPA) & Mix Management",
+                                "Strategische Jahresplanung (AOP)",
+                                "Trade Investment & Promo-Optimierung",
+                                "Commercial Finance Integration"
+                            ]
+                        },
+                        digital: {
+                            title: "VP Digital Commercial Strategy / Head of AI Pricing",
+                            profile: "Transformationaler Digital Commercial Leader, der tiefe operative FMCG-Expertise (Danone RGM Head) mit technologischer Führungserfahrung (Microsoft) und modernsten KI-Preisstrategien (Buynomics) verbindet. Einzigartig positioniert, um traditionelle FMCG/CPG-Unternehmen durch die kommerzielle digitale Transformation zu führen. Nachgewiesene Erfolge bei der Nutzung von KI-gestützter prädiktiver Modellierung zur Neustrukturierung kommerzieller Bedingungen und signifikanten Steigerung des operativen Gewinns.",
+                            competencies: [
+                                "Digitale Transformation & Value Acceleration",
+                                "KI-gestützte Preisstrategien & Predictive Modeling",
+                                "Enterprise SaaS Integration (TPM & Optimierung)",
+                                "Datengetriebene Commercial Excellence",
+                                "Cross-funktionale technologische & kommerzielle Führung"
+                            ]
+                        }
+                    },
+                    experience: [
+                        {
+                            company: "Buynomics",
+                            role: "Director, Value Advisory & Commercial Strategy",
+                            date: "Aktuell",
+                            location: "Frankfurt, Deutschland",
+                            older: false,
+                            desc: [
+                                "Beratung globaler CPG-Marken beim Übergang von traditionellen Preismodellen zu KI-gestützten prädiktiven Preisplattformen.",
+                                "Unterstützung von Unternehmenskunden bei der Integration von Machine-Learning-Erkenntnissen in ihre Jahresplanung (AOP) und Trade-Investment-Strategien."
+                            ]
+                        },
+                        {
+                            company: "Danone",
+                            role: "Head of RGM DACH",
+                            date: "6 Jahre",
+                            location: "Frankfurt, Deutschland",
+                            older: false,
+                            desc: [
+                                "Orchestrierung von 3-Jahres-Strategieplänen und AOP mit direkter Auswirkung auf das P&L-Management in Deutschland und Österreich.",
+                                "Optimierung von Trade Investments, Promo-Mechaniken und Vertragskonditionen mit führenden deutschen Handelspartnern.",
+                                "Aufbau leistungsstarker RGM-Teams und erfolgreiche Integration neuer TPM- & Preisoptimierungssysteme zur Steigerung der Commercial Excellence."
+                            ]
+                        },
+                        {
+                            company: "Philip Morris International",
+                            role: "Product Manager (MBA Internship)",
+                            date: "Jun 2014 – Sep 2014",
+                            location: "Moskau, Russland",
+                            older: true,
+                            desc: [
+                                "Bewertung strategischer Markenerweiterungen und Erstellung von Finanzmodellen zur Vermeidung verlustreicher 300-Millionen-Dollar-Investitionen."
+                            ]
+                        },
+                        {
+                            company: "Microsoft",
+                            role: "Account Technology Strategist",
+                            date: "Jan 2009 – Nov 2012",
+                            location: "Moskau, Russland",
+                            older: true,
+                            desc: [
+                                "Verwaltung eines Vertriebsziels von 10 Mio. USD, Zusammenarbeit mit Finanzen und Operations zur Bereitstellung komplexer Enterprise-Lösungen."
+                            ]
+                        },
+                        {
+                            company: "TopS Consulting",
+                            role: "Head of Product",
+                            date: "Mär 2007 – Jan 2009",
+                            location: "Moskau, Russland",
+                            older: true,
+                            desc: [
+                                "Leitung des vollständigen strategischen Planungszyklus und Einführung innovativer Tech-Produkte; jährliche Ergebnisse konstant um 12% übertroffen."
+                            ]
+                        }
+                    ],
+                    education: [
+                        {
+                            degree: "MBA",
+                            school: "IE Business School",
+                            date: "2014",
+                            location: "Madrid, Spanien"
+                        },
+                        {
+                            degree: "Master in Wirtschaft & IT",
+                            school: "Staatliche Universität für Management Moskau",
+                            date: "2006",
+                            location: "Moskau, Russland"
+                        }
+                    ],
+                    skills: ["Excel (Power Pivot/Stats)", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics Platform", "TPM Integration"],
+                    languages: ["Englisch (Fließend)", "Deutsch (Fortgeschritten)", "Spanisch (Verhandlungssicher)", "Russisch (Muttersprache)", "Portugiesisch (Fortgeschritten)", "Bulgarisch (Verhandlungssicher)"]
+                }
+            }
+        };
+
+        // STATE MANAGEMENT
+        let currentLang = 'en';
+        let currentTrack = 'standard';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+            renderCV();
+        }
+
+        function setTrack(track) {
+            currentTrack = track;
+            document.getElementById('btn-std').classList.toggle('active', track === 'standard');
+            document.getElementById('btn-dig').classList.toggle('active', track === 'digital');
+            renderCV();
+        }
+
+        function exportPDF(mode) {
+            if(mode === 'summary') {
+                document.body.classList.add('summary-mode');
+            } else {
+                document.body.classList.remove('summary-mode');
+            }
+            window.print();
+            // Optional: Remove class after print dialog closes
+            setTimeout(() => {
+                document.body.classList.remove('summary-mode');
+            }, 1000);
+        }
+
+        // RENDERING LOGIC
+        function renderCV() {
+            const data = cvData.content[currentLang];
+            const trackData = data.tracks[currentTrack];
+            const contact = cvData.contact;
+
+            // Render photo only for German CV per traditional DACH norms (though optional nowadays, it's a nice local touch)
+            const showPhotoStyle = currentLang === 'de' ? 'display: block;' : 'display: none;';
+
+            const html = `
+                <div class="header">
+                    <div class="header-left">
+                        <div class="name">${contact.name}</div>
+                        <div class="title">${trackData.title}</div>
+                        <div class="contact-info">
+                            <span>${contact.location}</span> &nbsp;|&nbsp;
+                            <span>${contact.phone}</span> &nbsp;|&nbsp;
+                            <span>${contact.email}</span> &nbsp;|&nbsp;
+                            <span>${contact.linkedin}</span>
+                        </div>
+                    </div>
+                    <div class="profile-img-container" style="${showPhotoStyle}">
+                        <img src="${contact.photo}" alt="Ivan Tretyakov">
+                    </div>
+                </div>
+
+                <div class="summary">
+                    ${trackData.profile}
+                </div>
+
+                <div class="main-grid">
+                    <div class="left-column">
+                        <div class="section-title">${data.labels.experience}</div>
+                        ${data.experience.map(exp => `
+                            <div class="item ${exp.older ? 'older-exp' : ''}">
+                                <div class="item-header">
+                                    <span class="role">${exp.role}</span>
+                                    <span class="date-loc">${exp.date} | ${exp.location}</span>
+                                </div>
+                                <div class="company">${exp.company}</div>
+                                <ul class="bullets">
+                                    ${exp.desc.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="right-column">
+                        <div class="sidebar-section">
+                            <div class="section-title">${data.labels.competencies}</div>
+                            <ul class="bullets">
+                                ${trackData.competencies.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <div class="section-title">${data.labels.skills}</div>
+                            <div class="skill-list">
+                                ${data.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <div class="section-title">${data.labels.education}</div>
+                            ${data.education.map(edu => `
+                                <div class="item" style="margin-bottom: 1rem;">
+                                    <div class="role" style="font-size: 0.9rem;">${edu.degree}</div>
+                                    <div class="company" style="font-size: 0.85rem;">${edu.school}</div>
+                                    <div class="date-loc education-details" style="text-align: left; font-size: 0.8rem;">${edu.date} | ${edu.location}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="sidebar-section">
+                            <div class="section-title">${data.labels.languages}</div>
+                            <div class="skill-list">
+                                ${data.languages.map(l => `<span class="skill-tag">${l}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('cv-root').innerHTML = html;
+        }
+
+        // Initial render
+        renderCV();
+    </script>
+</body>
+</html>
