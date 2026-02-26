@@ -5,198 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan Tretyakov | Senior RGM & Strategy Leader</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        @media print {
-            .no-print { display: none !important; }
-            body { background: white; margin: 0; }
-            .print-padding { padding: 0 !important; border: none !important; shadow: none !important; }
-            .page-break { page-break-before: always; }
-        }
-        .persona-active { border-bottom: 2px solid #1d4ed8; color: #1d4ed8; font-weight: 600; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
+        .persona-active { color: #2563eb; border-color: #2563eb; }
+        .lang-active { background-color: #0f172a; color: white; }
+        @media print { .no-print { display: none !important; } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 leading-relaxed">
+<body class="bg-[#f8fafc] text-[#1e293b] transition-all duration-300">
 
-    <nav class="no-print sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50 shadow-sm">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex gap-6">
-                <button onclick="setPersona('rgm')" id="btn-rgm" class="persona-active px-1 py-1 text-sm tracking-wide transition-all uppercase">Strategic RGM Leader</button>
-                <button onclick="setPersona('tech')" id="btn-tech" class="px-1 py-1 text-sm text-slate-500 hover:text-blue-700 tracking-wide transition-all uppercase">Digital & Transformation</button>
+    <!-- NAVIGATION / CONTROLS -->
+    <nav class="no-print sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <!-- Persona Toggle -->
+            <div class="flex bg-slate-100 p-1 rounded-lg">
+                <button onclick="setPersona('rgm')" id="btn-rgm" class="persona-active px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md transition-all">RGM Leader</button>
+                <button onclick="setPersona('tech')" id="btn-tech" class="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md text-slate-500 hover:text-blue-600 transition-all">Transformation</button>
             </div>
-            <button onclick="window.print()" class="bg-slate-900 text-white px-5 py-2 rounded text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-all flex items-center gap-2">
-                Export to PDF
-            </button>
+            
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle -->
+                <div class="flex border border-slate-200 rounded-lg overflow-hidden">
+                    <button onclick="setLang('en')" id="btn-en" class="lang-active px-3 py-1 text-xs font-bold">EN</button>
+                    <button onclick="setLang('de')" id="btn-de" class="px-3 py-1 text-xs font-bold text-slate-500">DE</button>
+                </div>
+                <!-- Print -->
+                <button onclick="window.print()" class="bg-[#0f172a] text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-all">PDF</button>
+            </div>
         </div>
     </nav>
 
-    <main class="print-padding max-w-4xl mx-auto bg-white my-8 p-10 md:p-16 shadow-xl border border-slate-100">
+    <main class="max-w-5xl mx-auto bg-white my-12 p-8 md:p-20 shadow-2xl shadow-slate-200/50 border border-slate-100 rounded-sm">
         
-        <header class="border-b-4 border-slate-900 pb-10 mb-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <!-- HEADER -->
+        <header class="mb-16">
+            <h1 class="text-5xl font-black text-[#0f172a] mb-4 tracking-tight">Ivan Tretyakov</h1>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-t-2 border-slate-900 pt-6">
                 <div>
-                    <h1 class="text-5xl font-extrabold tracking-tighter text-slate-900 mb-2">Ivan Tretyakov</h1>
-                    <p class="text-2xl text-blue-700 font-light persona-text-rgm">Senior Revenue Growth Management Executive</p>
-                    <p class="text-2xl text-blue-700 font-light persona-text-tech hidden">Director of Digital Transformation & Commercial Strategy</p>
+                    <p class="text-xl text-blue-600 font-medium persona-text-rgm lang-en">Senior Revenue Growth Management Executive</p>
+                    <p class="text-xl text-blue-600 font-medium persona-text-rgm lang-de hidden">Senior Führungskraft für Revenue Growth Management</p>
+                    <p class="text-xl text-blue-600 font-medium persona-text-tech hidden lang-en">Director of Digital Transformation & Strategy</p>
+                    <p class="text-xl text-blue-600 font-medium persona-text-tech hidden lang-de hidden">Director für Digitale Transformation & Strategie</p>
                 </div>
-                <div class="text-xs text-slate-500 font-medium space-y-1 md:text-right uppercase tracking-widest">
+                <div class="text-sm space-y-1 text-slate-500 md:text-right font-medium">
                     <p>Frankfurt, Germany</p>
-                    <p><a href="mailto:tretyakovi@gmail.com" class="hover:text-blue-600">tretyakovi@gmail.com</a></p>
-                    <p><a href="https://linkedin.com/in/ivantretyakov/" target="_blank" class="hover:text-blue-600 underline decoration-blue-200 underline-offset-4">LinkedIn Profile</a></p>
+                    <p>tretyakovi@gmail.com | +49 162 1387742</p>
+                    <p class="text-blue-600"><a href="https://linkedin.com/in/ivantretyakov/">linkedin.com/in/ivantretyakov</a></p>
                 </div>
             </div>
         </header>
 
-        <section class="mb-12">
-            <h2 class="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-6">Executive Summary</h2>
-            <p class="text-lg text-slate-700 leading-relaxed font-light persona-text-rgm">
-                Senior RGM Leader with over 20 years of FMCG experience. Expert in orchestrating 3-Year Strategic Plans, optimizing trade investment, and driving capital allocation toward high-ROI growth levers. Proven ability to bridge Commercial and Finance functions to deliver sustainable margin recovery.
-            </p>
-            <p class="text-lg text-slate-700 leading-relaxed font-light persona-text-tech hidden">
-                Strategic leader at the intersection of CPG and advanced technology. Specialist in AI-driven pricing transformation, TPM system architecture, and commercial process automation. Gained unique benchmarking exposure at Buynomics to integrate next-gen RGM capabilities into global enterprise ecosystems.
-            </p>
-        </section>
-
-        <section class="mb-12">
-            <h2 class="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-6">Professional Experience</h2>
+        <!-- EXPERIENCE SECTION -->
+        <section>
+            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-slate-400 mb-10 border-b pb-2">Experience / Erfahrung</h2>
             
-            <!-- Buynomics -->
-            <div class="mb-10 group">
+            <!-- DANONE -->
+            <div class="mb-12">
                 <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Buynomics</h3>
-                    <span class="text-sm font-bold text-slate-400">2025 – PRESENT</span>
-                </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Director, Value Advisory & Commercial Strategy</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Leading the integration of advanced pricing KPIs and governance tools into global client ecosystems.</span></li>
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Partnering with C-suite leadership to simulate tariff changes and delistings, directly impacting annual negotiation strategies.</span></li>
-                </ul>
-            </div>
-
-            <!-- Danone -->
-            <div class="mb-10 group">
-                <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Danone Germany</h3>
+                    <h3 class="text-2xl font-bold text-[#0f172a]">Danone Germany</h3>
                     <span class="text-sm font-bold text-slate-400">2018 – 2024</span>
                 </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Head of Revenue Growth & Commercial Strategy</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Managed a multi-functional team of 22 FTEs across RGM, Tools/Analytics, and Sales Operations.</span></li>
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span><strong>Profitability:</strong> Delivered 2% EBITDA increase within 12 months by restructuring commercial terms and promo mechanics.</span></li>
-                    <li class="persona-text-tech hidden flex gap-3"><span class="text-blue-600">/</span> <span><strong>Digital:</strong> Initiated and delivered a new Trade Promotion Management (TPM) solution, replacing Excel-based planning and improving accuracy by 20%.</span></li>
-                    <li class="persona-text-rgm flex gap-3"><span class="text-blue-600">/</span> <span><strong>Negotiation:</strong> Improved contract conditionality by 18% through renegotiations with top-5 German retailers.</span></li>
+                <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4">Head of Revenue Growth & Commercial Strategy</p>
+                
+                <ul class="space-y-3 text-[15px] text-slate-600 leading-relaxed">
+                    <li class="lang-en">• Led a high-performing DACH RGM team of 22 FTEs across 5 core workstreams.</li>
+                    <li class="lang-de hidden">• Leitung eines leistungsstarken DACH RGM-Teams mit 22 Mitarbeitern in 5 Kernbereichen.</li>
+                    
+                    <li class="lang-en">• <strong>Impact:</strong> Delivered a 2% increase in EBITDA within 12 months through optimized trade investment.</li>
+                    <li class="lang-de hidden">• <strong>Erfolg:</strong> Steigerung des EBITDA um 2 % innerhalb von 12 Monaten durch optimierte Handelsinvestitionen.</li>
+                    
+                    <li class="persona-text-tech hidden">
+                        <span class="lang-en">• <strong>Digital:</strong> Deployed a new Trade Promotion Management (TPM) solution, enhancing forecast accuracy and reducing admin time by 20%.</span>
+                        <span class="lang-de hidden">• <strong>Digital:</strong> Implementierung einer neuen TPM-Lösung, die die Prognosegenauigkeit erhöhte und den Admin-Aufwand um 20 % senkte.</span>
+                    </li>
+                    
+                    <li class="persona-text-rgm">
+                        <span class="lang-en">• <strong>Governance:</strong> Enforced strict RGM governance and compliance standards across the cluster.</span>
+                        <span class="lang-de hidden">• <strong>Governance:</strong> Durchsetzung strenger RGM-Governance- und Compliance-Standards im gesamten Cluster.</span>
+                    </li>
                 </ul>
             </div>
 
-            <!-- Globalpraxis -->
-            <div class="mb-10 group">
+            <!-- BUY NOMICS -->
+            <div class="mb-12">
                 <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Globalpraxis Group</h3>
+                    <h3 class="text-2xl font-bold text-[#0f172a]">Buynomics</h3>
+                    <span class="text-sm font-bold text-slate-400">2025 – Present</span>
+                </div>
+                <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4">Director, Value Advisory</p>
+                <ul class="space-y-3 text-[15px] text-slate-600 leading-relaxed">
+                    <li class="lang-en">• Partnering with global CPG leadership to simulate tariff changes and delistings using AI platforms.</li>
+                    <li class="lang-de hidden">• Beratung globaler CPG-Führungskräfte bei der Simulation von Tarifänderungen mittels KI-Plattformen.</li>
+                </ul>
+            </div>
+
+            <!-- GLOBALPRAXIS -->
+            <div class="mb-12">
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-2xl font-bold text-[#0f172a]">Globalpraxis Group</h3>
                     <span class="text-sm font-bold text-slate-400">2014 – 2018</span>
                 </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Strategy Consulting Manager</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Led data-driven consulting engagements for Fortune 500 CPGs across 10 countries.</span></li>
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Secured €500k additional revenue via targeted channel expansion and Go-to-Market strategies.</span></li>
+                <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4">Strategy Consulting Manager</p>
+                <ul class="space-y-3 text-[15px] text-slate-600 leading-relaxed">
+                    <li class="lang-en">• Delivered 5% revenue increase for Fortune 500 clients by optimizing pricing architecture.</li>
+                    <li class="lang-de hidden">• Erzielung einer Umsatzsteigerung von 5 % für Fortune-500-Kunden durch Optimierung der Preisarchitektur.</li>
                 </ul>
-            </div>
-
-            <div class="page-break no-print mt-12 mb-12 border-t border-slate-100"></div>
-
-            <!-- Aujan -->
-            <div class="mb-10 group">
-                <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Aujan Coca-Cola Bottling Co.</h3>
-                    <span class="text-sm font-bold text-slate-400">2017 – 2018</span>
-                </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Interim Business Process Manager</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Restructured a 500-person sales force in MENA, introducing new performance scorecards and compensation schemes.</span></li>
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Reduced Sales & Distribution (S&D) costs by 15% through logistics and procurement optimization.</span></li>
-                </ul>
-            </div>
-
-            <!-- Microsoft -->
-            <div class="mb-10 group">
-                <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Microsoft</h3>
-                    <span class="text-sm font-bold text-slate-400">2009 – 2012</span>
-                </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Account Technology Strategist</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Managed $10M sales target, orchestrating complex enterprise solutions for major local and international accounts.</span></li>
-                    <li class="persona-text-tech hidden flex gap-3"><span class="text-blue-600">/</span> <span>Directed C-level workshops demonstrating ROI of digital infrastructure transformations.</span></li>
-                </ul>
-            </div>
-
-            <!-- TopS -->
-            <div class="mb-10 group">
-                <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">TopS Consulting</h3>
-                    <span class="text-sm font-bold text-slate-400">2005 – 2009</span>
-                </div>
-                <p class="text-sm font-bold text-blue-800 uppercase tracking-widest mb-3">Head of Product / Data Engineer</p>
-                <ul class="space-y-2 text-sm text-slate-600">
-                    <li class="flex gap-3"><span class="text-blue-600">/</span> <span>Launched innovative tech products, consistently overdelivering yearly results by 12%.</span></li>
-                    <li class="persona-text-tech hidden flex gap-3"><span class="text-blue-600">/</span> <span>Developed data-driven systems including credit scoring and logistics optimization modules.</span></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10 border-t border-slate-100">
-            <div>
-                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-6">Education</h2>
-                <div class="mb-4">
-                    <p class="text-sm font-bold text-slate-900">MBA, IE Business School</p>
-                    <p class="text-xs text-slate-500 font-medium">Madrid, Spain | 2014</p>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-slate-900">Master of Economics & IT</p>
-                    <p class="text-xs text-slate-500 font-medium text-slate-400">Moscow State University of Management | 2006</p>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-6">Expertise</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest">Price Pack Architecture</span>
-                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest">Trade Term Optimization</span>
-                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest">AI Pricing Systems</span>
-                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest">P&L Leadership</span>
-                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest">Change Management</span>
-                </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="no-print text-center py-10 text-slate-400 text-[10px] uppercase tracking-[0.2em]">
-        Built with OpenClaw & Claude Code for Ivan Tretyakov
-    </footer>
-
     <script>
-        function setPersona(type) {
-            const rgmElements = document.querySelectorAll('.persona-text-rgm');
-            const techElements = document.querySelectorAll('.persona-text-tech');
-            const btnRgm = document.getElementById('btn-rgm');
-            const btnTech = document.getElementById('btn-tech');
+        let currentPersona = 'rgm';
+        let currentLang = 'en';
 
-            if (type === 'rgm') {
-                rgmElements.forEach(el => el.classList.remove('hidden'));
-                techElements.forEach(el => el.classList.add('hidden'));
-                btnRgm.classList.add('persona-active');
-                btnRgm.classList.remove('text-slate-500');
-                btnTech.classList.remove('persona-active');
-                btnTech.classList.add('text-slate-500');
+        function updateUI() {
+            // Personas
+            document.querySelectorAll('.persona-text-rgm').forEach(el => el.classList.toggle('hidden', currentPersona !== 'rgm'));
+            document.querySelectorAll('.persona-text-tech').forEach(el => el.classList.toggle('hidden', currentPersona !== 'tech'));
+            
+            // Languages
+            document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', currentLang !== 'en'));
+            document.querySelectorAll('.lang-de').forEach(el => el.classList.toggle('hidden', currentLang !== 'de'));
+
+            // Double filter for overlapping elements
+            if (currentPersona === 'rgm') {
+                document.querySelectorAll('.persona-text-rgm.lang-en').forEach(el => el.classList.toggle('hidden', currentLang !== 'en'));
+                document.querySelectorAll('.persona-text-rgm.lang-de').forEach(el => el.classList.toggle('hidden', currentLang !== 'de'));
             } else {
-                rgmElements.forEach(el => el.classList.add('hidden'));
-                techElements.forEach(el => el.classList.remove('hidden'));
-                btnTech.classList.add('persona-active');
-                btnTech.classList.remove('text-slate-500');
-                btnRgm.classList.remove('persona-active');
-                btnRgm.classList.add('text-slate-500');
+                document.querySelectorAll('.persona-text-tech.lang-en').forEach(el => el.classList.toggle('hidden', currentLang !== 'en'));
+                document.querySelectorAll('.persona-text-tech.lang-de').forEach(el => el.classList.toggle('hidden', currentLang !== 'de'));
             }
+
+            // Buttons
+            document.getElementById('btn-rgm').className = currentPersona === 'rgm' ? 'persona-active px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md' : 'px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-500';
+            document.getElementById('btn-tech').className = currentPersona === 'tech' ? 'persona-active px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md' : 'px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-500';
+            document.getElementById('btn-en').className = currentLang === 'en' ? 'lang-active px-3 py-1 text-xs font-bold' : 'px-3 py-1 text-xs font-bold text-slate-500';
+            document.getElementById('btn-de').className = currentLang === 'de' ? 'lang-active px-3 py-1 text-xs font-bold' : 'px-3 py-1 text-xs font-bold text-slate-500';
         }
+
+        function setPersona(p) { currentPersona = p; updateUI(); }
+        function setLang(l) { currentLang = l; updateUI(); }
+        
+        updateUI();
     </script>
 </body>
 </html>
