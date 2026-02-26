@@ -6,7 +6,7 @@ const cvData = {
         email: "tretyakovi@gmail.com",
         linkedin: "linkedin.com/in/ivantretyakov",
         location: "Frankfurt, Germany",
-        photo: "profile_linkedin.jpg"
+        photo: "assets/profile_linkedin.jpg"
     },
     content: {
         en: {
