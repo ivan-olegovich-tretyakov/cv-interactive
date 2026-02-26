@@ -764,29 +764,68 @@
            ============================================================ */
         @media print {
             .settings-btn { display: none; }
-            .controls { display: none !important; }
+            .controls    { display: none !important; }
             body { background: #fff; padding: 0; }
             .cv-container { box-shadow: none; padding: 0; max-width: 100%; width: 100%; }
             @page { margin: 12mm 15mm; }
 
-            body.summary-mode .cv-container { height: 297mm; overflow: hidden; }
-            body.summary-mode .older-exp { display: none; }
-            body.summary-mode .education-details { display: none; }
-            body.summary-mode .summary { margin-bottom: 1.5rem; }
-            body.summary-mode .item { margin-bottom: 1rem; }
-            body.summary-mode .main-grid { gap: 2rem; }
-
+            /* ── EXECUTIVE: shared print fixes ── */
             body.theme-executive .cv-container {
                 margin: 0;
-                grid-template-columns: 260px 1fr;
+                grid-template-columns: 250px 1fr;
             }
-
             body.theme-executive .exec-sidebar {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            /* Hide the mobile-only duplicate section */
+            body.theme-executive .exec-main-extra { display: none !important; }
 
-            body.theme-executive.summary-mode .older-exp { display: none; }
+            /* ── CLASSIC: 1-PAGE COMPACT ── */
+            body.summary-mode .cv-container      { padding: 1.4rem 2.25rem; }
+            body.summary-mode .name              { font-size: 1.8rem; }
+            body.summary-mode .title             { font-size: 0.9rem; margin-bottom: 0.5rem; }
+            body.summary-mode .header            { padding-bottom: 0.7rem; margin-bottom: 0.8rem; }
+            body.summary-mode .contact-info      { font-size: 0.76rem; gap: 0.6rem; }
+            body.summary-mode .profile-img-container { display: none; }
+            body.summary-mode .summary           { font-size: 0.82rem; line-height: 1.4; margin-bottom: 0.8rem; text-align: left; }
+            body.summary-mode .main-grid         { gap: 1.5rem; }
+            body.summary-mode .section-title     { font-size: 0.82rem; margin-bottom: 0.45rem; padding-bottom: 0.2rem; }
+            body.summary-mode .item              { margin-bottom: 0.65rem; }
+            body.summary-mode .item-header       { margin-bottom: 0.08rem; }
+            body.summary-mode .role              { font-size: 0.86rem; }
+            body.summary-mode .company           { font-size: 0.8rem; }
+            body.summary-mode .date-loc          { font-size: 0.72rem; }
+            body.summary-mode ul.bullets li      { font-size: 0.76rem; margin-bottom: 0.12rem; line-height: 1.32; }
+            body.summary-mode .sidebar-section   { margin-bottom: 0.85rem; }
+            body.summary-mode .skill-tag         { font-size: 0.68rem; padding: 0.1rem 0.35rem; }
+
+            /* ── EXECUTIVE: 1-PAGE COMPACT ── */
+            body.theme-executive.summary-mode .exec-sidebar       { padding: 1.25rem 1.1rem; }
+            body.theme-executive.summary-mode .exec-main          { padding: 1.25rem 1.5rem; }
+            body.theme-executive.summary-mode .exec-photo-wrap    { width: 68px; height: 68px; margin-bottom: 0.9rem; }
+            body.theme-executive.summary-mode .exec-name          { font-size: 1rem; margin-bottom: 0.25rem; }
+            body.theme-executive.summary-mode .exec-track-title   { font-size: 0.58rem; margin-bottom: 0.9rem; }
+            body.theme-executive.summary-mode .exec-rule          { margin-bottom: 1rem; }
+            body.theme-executive.summary-mode .exec-sidebar-section { margin-bottom: 1rem; }
+            body.theme-executive.summary-mode .exec-sidebar-label { font-size: 0.5rem; margin-bottom: 0.45rem; padding-bottom: 0.25rem; }
+            body.theme-executive.summary-mode .exec-contact-item  { font-size: 0.66rem; margin-bottom: 0.28rem; }
+            body.theme-executive.summary-mode .exec-skill-chip    { font-size: 0.58rem; padding: 0.12rem 0.35rem; }
+            body.theme-executive.summary-mode .exec-lang-row      { font-size: 0.66rem; padding: 0.18rem 0; }
+            body.theme-executive.summary-mode .exec-edu-item      { margin-bottom: 0.55rem; }
+            body.theme-executive.summary-mode .exec-edu-degree    { font-size: 0.7rem; }
+            body.theme-executive.summary-mode .exec-edu-school    { font-size: 0.63rem; }
+            body.theme-executive.summary-mode .exec-edu-meta      { font-size: 0.58rem; }
+            body.theme-executive.summary-mode .exec-main-section  { margin-bottom: 1rem; }
+            body.theme-executive.summary-mode .exec-main-title    { font-size: 0.5rem; margin-bottom: 0.55rem; padding-bottom: 0.28rem; }
+            body.theme-executive.summary-mode .exec-profile-text  { font-size: 0.75rem; line-height: 1.5; }
+            body.theme-executive.summary-mode .exec-exp-item      { margin-bottom: 0.8rem; }
+            body.theme-executive.summary-mode .exec-exp-role      { font-size: 0.8rem; }
+            body.theme-executive.summary-mode .exec-exp-date      { font-size: 0.62rem; }
+            body.theme-executive.summary-mode .exec-exp-company   { font-size: 0.68rem; margin-bottom: 0.28rem; }
+            body.theme-executive.summary-mode .exec-bullets li    { font-size: 0.7rem; margin-bottom: 0.12rem; line-height: 1.32; }
+            body.theme-executive.summary-mode .exec-comp-grid     { gap: 0.28rem; }
+            body.theme-executive.summary-mode .exec-comp-item     { padding: 0.28rem 0.45rem; font-size: 0.66rem; }
         }
     </style>
 </head>
@@ -887,9 +926,29 @@
             // Close settings panel before print dialog
             document.getElementById('settings-panel').classList.remove('open');
             document.getElementById('settings-btn').classList.remove('open');
-            document.body.classList.toggle('summary-mode', mode === 'summary');
+
+            // Remove any previously injected page-margin override
+            const prev = document.getElementById('pdf-page-style');
+            if (prev) prev.remove();
+
+            if (mode === 'summary') {
+                document.body.classList.add('summary-mode');
+                // Tighter margins give more room for compact 1-page layout
+                const s = document.createElement('style');
+                s.id = 'pdf-page-style';
+                s.textContent = '@page { margin: 6mm 10mm; }';
+                document.head.appendChild(s);
+            } else {
+                document.body.classList.remove('summary-mode');
+            }
+
             window.print();
-            setTimeout(() => document.body.classList.remove('summary-mode'), 1000);
+
+            setTimeout(() => {
+                document.body.classList.remove('summary-mode');
+                const s = document.getElementById('pdf-page-style');
+                if (s) s.remove();
+            }, 1500);
         }
 
         // ── DISPATCHER ─────────────────────────────────────────────
