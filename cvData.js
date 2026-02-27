@@ -1,5 +1,5 @@
 // CV Data for Ivan Tretyakov
-// Last rewritten: 2026-02-27 — cleaned buzzwords, fixed experience framing, honest Buynomics bullets
+// Last rewritten: 2026-02-27 — honest titles, corrected timelines, reframed Danone/Aujan/Buynomics, skills restructured
 const cvData = {
     contact: {
         name: "Ivan Tretyakov",
@@ -22,7 +22,7 @@ const cvData = {
             tracks: {
                 standard: {
                     title: "Head of Revenue Growth Management",
-                    profile: "Commercial and pricing leader with 19 years of experience across technology, consulting, and FMCG — including 6 years as Head of Revenue Growth Management for DACH at Danone Germany. Built and ran the full RGM function: pricing strategy, Price Pack Architecture, trade investment, and commercial planning across a ~€1bn portfolio. Currently at Buynomics, an AI-powered pricing platform, advising enterprise CPG clients on commercial strategy and pricing governance. Returning to operational leadership to apply both the RGM track record and the technology perspective.",
+                    profile: "Commercial and pricing leader with 19 years of experience across technology, consulting, and FMCG — including 6 years as Head of Revenue Growth Management for DACH at Danone Germany. Built and ran the full RGM function: pricing strategy, Price Pack Architecture, trade investment, and commercial planning across a ~€1bn portfolio. Currently at Buynomics, an AI-powered pricing platform, advising enterprise CPG clients on commercial strategy and pricing governance. Combines deep operational RGM experience with hands-on technology and AI expertise.",
                     competencies: [
                         "DACH RGM Strategy & P&L Ownership",
                         "Trade Investment & Promotion Optimization",
@@ -33,7 +33,7 @@ const cvData = {
                 },
                 digital: {
                     title: "Director, Commercial Strategy & Pricing",
-                    profile: "Commercial and product leader with 19 years across technology, consulting, and FMCG. Spent 6 years running RGM for Danone Germany — pricing strategy, trade terms, TPM systems, and team capability. Moved to Buynomics to work at the intersection of CPG and AI-powered pricing: advising enterprise clients across Europe, the US, and Australia, leading a team of 5 product managers, and building AI-driven processes for commercial insight generation. Brings both the operator's credibility and the technology practitioner's perspective.",
+                    profile: "Commercial and product leader with 19 years across technology, consulting, and FMCG. Spent 6 years running RGM for Danone Germany — pricing strategy, trade terms, TPM systems, and team capability. Now at Buynomics at the intersection of CPG and AI-powered pricing: advising enterprise clients across Europe, the US, and Australia, building end-to-end product development processes, and establishing AI-driven workflows for commercial insight generation. Combines the operator's credibility with the technology practitioner's perspective.",
                     competencies: [
                         "AI-Driven Pricing Strategy & Governance",
                         "RGM & Commercial Excellence",
@@ -46,15 +46,14 @@ const cvData = {
             experience: [
                 {
                     company: "Buynomics",
-                    role: "Director, Value Advisory & Commercial Strategy",
+                    role: "Product Innovations Director",
                     date: "Jan 2025 – Present",
                     location: "Frankfurt, Germany",
                     older: false,
                     desc: [
                         "Advise ~12 enterprise CPG clients across Europe, the US, and Australia on pricing strategy, RGM governance, and assortment optimization — translating AI simulation outputs into actionable commercial decisions.",
                         "Lead pricing workshops with client leadership teams to model tariff changes, retailer delisting scenarios, and price architecture trade-offs ahead of annual negotiations.",
-                        "Manage a team of 5 product managers, applying CPG practitioner experience to shape product development priorities and translate customer feedback into platform improvements.",
-                        "Built an AI-driven process to systematically collect and synthesize customer feedback into structured product insights, accelerating the feedback-to-decision cycle across the commercial team."
+                        "Built an end-to-end product development process from AI-driven customer feedback ingestion through PM concept shaping to engineering delivery, achieving stable 2-quarter roadmap predictability."
                     ]
                 },
                 {
@@ -65,8 +64,7 @@ const cvData = {
                     older: false,
                     desc: [
                         "Built and led the RGM function for Danone Germany, covering pricing, Price Pack Architecture, promotion strategy, trade terms, and commercial planning across a ~€1bn DACH portfolio.",
-                        "Implemented 5 RGM workstreams delivering a +2pp improvement in operating profit (EBITDA) within 12 months.",
-                        "Led the 3-year pricing roadmap during peak inflation (2022–23), protecting net revenue while recovering gross margin.",
+                        "Architected the cross-portfolio pricing strategy during peak inflation (2022–23), delivering ~€50M in incremental bottom-line contribution while protecting net revenue and recovering gross margin.",
                         "Renegotiated commercial terms with Germany's Top-5 retailers, restructuring trade investment to improve efficiency by 18%.",
                         "Deployed a new Trade Promotion Management (TPM) system, improving forecast accuracy and cutting planning time by 20%."
                     ]
@@ -74,7 +72,7 @@ const cvData = {
                 {
                     company: "Globalpraxis Group",
                     role: "Strategy Consulting Manager",
-                    date: "Sep 2014 – Nov 2018",
+                    date: "Sep 2014 – May 2017",
                     location: "Barcelona, Spain",
                     older: false,
                     desc: [
@@ -85,18 +83,19 @@ const cvData = {
                 },
                 {
                     company: "Aujan Coca-Cola Bottling Company",
-                    role: "Interim Business Process Manager",
-                    date: "May 2017 – Jun 2018",
+                    role: "Business Process Manager",
+                    date: "May 2017 – May 2018",
                     location: "Dubai, UAE",
                     older: true,
                     desc: [
-                        "Restructured a 500-person sales force across 5 MENA countries, redesigning compensation schemes and route-to-market frameworks.",
-                        "Reduced Sales & Distribution costs by 15% through logistics and procurement optimization."
+                        "Led the rollout of a salesforce automation platform (order taking, shipment tracking, delivery) across 200+ field reps in 5 MENA countries — managing vendor selection, IT coordination, and field piloting.",
+                        "Optimized distribution logistics including warehouse consolidation and introduction of route planning software, contributing to measurable S&D cost reduction.",
+                        "Built a company-wide sales reporting system on Power BI from scratch — secured executive sponsorship, developed the data pipeline (C#/Azure Functions), and designed dashboards adopted across the commercial organization."
                     ]
                 },
                 {
                     company: "Philip Morris International",
-                    role: "Product Manager (MBA Internship)",
+                    role: "Brand Executive",
                     date: "Jun 2014 – Sep 2014",
                     location: "Moscow, Russia",
                     older: true,
@@ -140,8 +139,8 @@ const cvData = {
                     location: "Moscow, Russia"
                 }
             ],
-            skills: ["Excel (Power Pivot & Statistics)", "PowerPoint", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics Platform", "TPM System Integration"],
-            languages: ["Russian (Native)", "Bulgarian (Native)", "English (Fluent)", "Spanish (Fluent)", "German (B2)", "Portuguese (Intermediate)"]
+            skills: ["Pricing Simulation & AI Tools", "Trade Promotion Management (TPM) Systems", "Power BI & Advanced Analytics", "Excel (Power Pivot, Financial Modeling)", "SQL & Python (Prototyping)", "Enterprise System Integration"],
+            languages: ["Russian (Native)", "Bulgarian (Native)", "English (Fluent)", "Spanish (Fluent)", "German (C1)", "Portuguese (Intermediate)"]
         },
         de: {
             labels: {
@@ -155,7 +154,7 @@ const cvData = {
             tracks: {
                 standard: {
                     title: "Leiter Revenue Growth Management",
-                    profile: "Erfahrene Führungskraft in Commercial Strategy und Pricing mit 19 Jahren Berufserfahrung in Technologie, Beratung und FMCG — darunter 6 Jahre als Head of Revenue Growth Management für DACH bei Danone Deutschland. Aufbau und Leitung der gesamten RGM-Funktion: Preisstrategie, Price Pack Architecture, Handelsinvestitionen und kommerzielle Planung für ein Portfolio von ~1 Mrd. €. Aktuell bei Buynomics, einer KI-basierten Pricing-Plattform, mit Beratung von Enterprise-CPG-Kunden zu kommerzieller Strategie und Preissteuerung. Rückkehr in eine operative Führungsrolle, um RGM-Kompetenz und technologisches Know-how gemeinsam einzusetzen.",
+                    profile: "Erfahrene Führungskraft in Commercial Strategy und Pricing mit 19 Jahren Berufserfahrung in Technologie, Beratung und FMCG — darunter 6 Jahre als Head of Revenue Growth Management für DACH bei Danone Deutschland. Aufbau und Leitung der gesamten RGM-Funktion: Preisstrategie, Price Pack Architecture, Handelsinvestitionen und kommerzielle Planung für ein Portfolio von ~1 Mrd. €. Aktuell bei Buynomics, einer KI-basierten Pricing-Plattform, mit Beratung von Enterprise-CPG-Kunden zu kommerzieller Strategie und Preissteuerung. Verbindet fundierte operative RGM-Erfahrung mit praxisnaher Technologie- und KI-Kompetenz.",
                     competencies: [
                         "DACH RGM-Strategie & P&L-Verantwortung",
                         "Handelsinvestitionen & Promotionsoptimierung",
@@ -166,7 +165,7 @@ const cvData = {
                 },
                 digital: {
                     title: "Director, Commercial Strategy & Pricing",
-                    profile: "Kommerzielle und produktseitige Führungskraft mit 19 Jahren Erfahrung in Technologie, Beratung und FMCG. Sechs Jahre Leitung des RGM bei Danone Deutschland — Preisstrategie, Handelskonditionen, TPM-Systeme und Teamaufbau. Wechsel zu Buynomics an die Schnittstelle von CPG und KI-gestützter Preisgestaltung: Beratung von Enterprise-Kunden in Europa, den USA und Australien, Führung eines Teams von 5 Produktmanagern und Aufbau KI-gesteuerter Prozesse zur kommerziellen Insight-Generierung. Verbindet operative Glaubwürdigkeit mit technologischem Praxiswissen.",
+                    profile: "Kommerzielle und produktseitige Führungskraft mit 19 Jahren Erfahrung in Technologie, Beratung und FMCG. Sechs Jahre Leitung des RGM bei Danone Deutschland — Preisstrategie, Handelskonditionen, TPM-Systeme und Teamaufbau. Heute bei Buynomics an der Schnittstelle von CPG und KI-gestützter Preisgestaltung: Beratung von Enterprise-Kunden in Europa, den USA und Australien, Aufbau durchgängiger Produktentwicklungsprozesse und Etablierung KI-gesteuerter Workflows zur kommerziellen Insight-Generierung. Verbindet operative Glaubwürdigkeit mit technologischem Praxiswissen.",
                     competencies: [
                         "KI-gestützte Preisstrategie & Governance",
                         "Revenue Growth Management & Commercial Excellence",
@@ -179,15 +178,14 @@ const cvData = {
             experience: [
                 {
                     company: "Buynomics",
-                    role: "Director, Value Advisory & Commercial Strategy",
+                    role: "Product Innovations Director",
                     date: "Jan 2025 – Heute",
                     location: "Frankfurt, Deutschland",
                     older: false,
                     desc: [
                         "Beratung von rund 12 Enterprise-CPG-Kunden in Europa, den USA und Australien zu Preisstrategie, RGM-Governance und Sortimentsoptimierung — Übersetzung von KI-Simulationsergebnissen in handlungsrelevante kommerzielle Entscheidungen.",
                         "Leitung von Pricing-Workshops mit Führungsteams zur Modellierung von Tarifänderungen, Auslistungsszenarien und Preisarchitekturoptionen im Vorfeld von Jahresverhandlungen.",
-                        "Führung eines Teams von 5 Produktmanagern: Einbringen von CPG-Praxiswissen in Produktentwicklungsprioritäten und Übersetzung von Kundenfeedback in Plattformverbesserungen.",
-                        "Aufbau eines vollständig KI-gesteuerten Prozesses zur systematischen Erhebung und Auswertung von Kundenfeedback — Verkürzung des Feedback-to-Decision-Zyklus im kommerziellen Team."
+                        "Aufbau eines durchgängigen Produktentwicklungsprozesses — von KI-gestützter Kundenfeedback-Erfassung über PM-Konzeptentwicklung bis zur Engineering-Umsetzung — mit stabiler Roadmap-Planbarkeit über 2 Quartale."
                     ]
                 },
                 {
@@ -198,8 +196,7 @@ const cvData = {
                     older: false,
                     desc: [
                         "Aufbau und Leitung der RGM-Funktion für Danone Deutschland: Preisstrategie, Price Pack Architecture, Promotionssteuerung, Handelskonditionen und kommerzielle Planung für ein DACH-Portfolio von ~1 Mrd. €.",
-                        "Einführung von 5 RGM-Kernarbeitsbereichen mit einer Steigerung des operativen Ergebnisses (EBITDA) um 2 Prozentpunkte innerhalb von 12 Monaten.",
-                        "Leitung der 3-Jahres-Preis-Roadmap in der Hochinflationsphase 2022–23 — Schutz des Nettoumsatzes bei gleichzeitiger Rohmargenwiederherstellung.",
+                        "Entwicklung der portfolioübergreifenden Preisstrategie in der Hochinflationsphase 2022–23 mit ~50 Mio. € inkrementellem Ergebnisbeitrag — bei gleichzeitigem Schutz des Nettoumsatzes und Wiederherstellung der Rohmarge.",
                         "Neugestaltung der Handelskonditionen mit den Top-5-Einzelhändlern Deutschlands, Verbesserung der Handelsinvestitionseffizienz um 18 %.",
                         "Einführung eines neuen Trade-Promotion-Management-Systems (TPM), das die Prognosegenauigkeit verbesserte und den Planungsaufwand um 20 % reduzierte."
                     ]
@@ -207,7 +204,7 @@ const cvData = {
                 {
                     company: "Globalpraxis Group",
                     role: "Strategy Consulting Manager",
-                    date: "Sep 2014 – Nov 2018",
+                    date: "Sep 2014 – Mai 2017",
                     location: "Barcelona, Spanien",
                     older: false,
                     desc: [
@@ -218,18 +215,19 @@ const cvData = {
                 },
                 {
                     company: "Aujan Coca-Cola Bottling Company",
-                    role: "Interim Business Process Manager",
-                    date: "Mai 2017 – Jun 2018",
+                    role: "Business Process Manager",
+                    date: "Mai 2017 – Mai 2018",
                     location: "Dubai, VAE",
                     older: true,
                     desc: [
-                        "Restrukturierung einer 500-köpfigen Vertriebsmannschaft in 5 MENA-Ländern mit neuen Vergütungsmodellen und Route-to-Market-Strukturen.",
-                        "Senkung der Vertriebs- und Distributionskosten (S&D) um 15 % durch Logistik- und Beschaffungsoptimierung."
+                        "Einführung einer Salesforce-Automatisierungsplattform (Auftragserfassung, Sendungsverfolgung, Auslieferung) für über 200 Außendienstmitarbeiter in 5 MENA-Ländern — Steuerung von Anbieterauswahl, IT-Koordination und Pilotbetrieb.",
+                        "Optimierung der Distributionslogistik einschließlich Lagerkonsolidierung und Einführung einer Tourenplanungssoftware mit messbarer Senkung der Vertriebs- und Distributionskosten.",
+                        "Eigenständiger Aufbau eines unternehmensweiten Sales-Reporting-Systems auf Power BI — Sicherung der Executive-Unterstützung, Entwicklung der Datenpipeline (C#/Azure Functions) und Erstellung von Dashboards für die gesamte Vertriebsorganisation."
                     ]
                 },
                 {
                     company: "Philip Morris International",
-                    role: "Product Manager (MBA-Praktikum)",
+                    role: "Brand Executive",
                     date: "Jun 2014 – Sep 2014",
                     location: "Moskau, Russland",
                     older: true,
@@ -273,8 +271,8 @@ const cvData = {
                     location: "Moskau, Russland"
                 }
             ],
-            skills: ["Excel (Power Pivot & Statistik)", "PowerPoint", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics-Plattform", "TPM-Systemintegration"],
-            languages: ["Russisch (Muttersprache)", "Bulgarisch (Muttersprache)", "Englisch (Fließend)", "Spanisch (Fließend)", "Deutsch (B2)", "Portugiesisch (Fortgeschritten)"]
+            skills: ["Pricing-Simulation & KI-Tools", "Trade-Promotion-Management-Systeme (TPM)", "Power BI & Advanced Analytics", "Excel (Power Pivot, Finanzmodellierung)", "SQL & Python (Prototyping)", "Enterprise-Systemintegration"],
+            languages: ["Russisch (Muttersprache)", "Bulgarisch (Muttersprache)", "Englisch (Fließend)", "Spanisch (Fließend)", "Deutsch (C1)", "Portugiesisch (Fortgeschritten)"]
         }
     }
 };
