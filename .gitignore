@@ -3,3 +3,5 @@
 .env*.local
 .claude/
 *.Zone.Identifier
+cvData.js.bak.2026-02-27
+combined_strategy.md:Zone.Identifier

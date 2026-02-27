@@ -1,4 +1,5 @@
 // CV Data for Ivan Tretyakov
+// Last rewritten: 2026-02-27 — cleaned buzzwords, fixed experience framing, honest Buynomics bullets
 const cvData = {
     contact: {
         name: "Ivan Tretyakov",
@@ -21,24 +22,24 @@ const cvData = {
             tracks: {
                 standard: {
                     title: "Head of Revenue Growth Management",
-                    profile: "Senior Commercial & Revenue Growth Leader with over 20 years of experience in FMCG, including 6 years as Head of RGM for DACH at Danone. Expert in orchestrating 3-Year Strategic Plans, optimizing trade investment, and driving capital allocation toward high-ROI growth levers. Proven ability to lead transformative change in complex matrix environments, bridging the gap between Commercial and Finance functions. Currently leveraging external best-practices in AI-driven pricing (Buynomics) to bring next-generation RGM capabilities back to operational leadership.",
+                    profile: "Commercial and pricing leader with 19 years of experience across technology, consulting, and FMCG — including 6 years as Head of Revenue Growth Management for DACH at Danone Germany. Built and ran the full RGM function: pricing strategy, Price Pack Architecture, trade investment, and commercial planning across a ~€1bn portfolio. Currently at Buynomics, an AI-powered pricing platform, advising enterprise CPG clients on commercial strategy and pricing governance. Returning to operational leadership to apply both the RGM track record and the technology perspective.",
                     competencies: [
-                        "DACH RGM Leadership & P&L Management",
-                        "Strategic Annual Operating Planning (AOP)",
-                        "Trade Investment & Promo Optimization",
-                        "Price Pack Architecture (PPA) & Mix Management",
-                        "Commercial Finance Integration"
+                        "DACH RGM Strategy & P&L Ownership",
+                        "Trade Investment & Promotion Optimization",
+                        "Price Pack Architecture & Mix Management",
+                        "Commercial Planning & Annual Operating Process",
+                        "AI-Driven Pricing & Commercial Technology"
                     ]
                 },
                 digital: {
-                    title: "Director of Digital Transformation & Strategy",
-                    profile: "Strategic leader at the intersection of CPG and advanced technology. Specialist in AI-driven pricing transformation, TPM system architecture, and commercial process automation. Gained unique benchmarking exposure at Buynomics to integrate next-gen RGM capabilities into global enterprise ecosystems. Proven track record of leveraging data analytics to restructure commercial terms and significantly increase operating profit.",
+                    title: "Director, Commercial Strategy & Pricing",
+                    profile: "Commercial and product leader with 19 years across technology, consulting, and FMCG. Spent 6 years running RGM for Danone Germany — pricing strategy, trade terms, TPM systems, and team capability. Moved to Buynomics to work at the intersection of CPG and AI-powered pricing: advising enterprise clients across Europe, the US, and Australia, leading a team of 5 product managers, and building AI-driven processes for commercial insight generation. Brings both the operator's credibility and the technology practitioner's perspective.",
                     competencies: [
-                        "Digital Transformation & Value Acceleration",
-                        "AI-Driven Pricing Strategy & Predictive Modeling",
-                        "Enterprise SaaS Integration (TPM & Optimization)",
-                        "Data-Driven Commercial Excellence",
-                        "Cross-functional Tech & Commercial Leadership"
+                        "AI-Driven Pricing Strategy & Governance",
+                        "RGM & Commercial Excellence",
+                        "Enterprise Pricing Tool Integration (TPM & SaaS)",
+                        "Data-Driven Commercial Decision Making",
+                        "Cross-functional Commercial Leadership"
                     ]
                 }
             },
@@ -50,9 +51,10 @@ const cvData = {
                     location: "Frankfurt, Germany",
                     older: false,
                     desc: [
-                        "Gained unique exposure to best-in-class RGM methodologies across multiple enterprise CPGs, identifying industry trends in pricing and assortment optimization.",
-                        "Lead the integration of advanced pricing KPIs and governance tools into client ecosystems, ensuring consistent logic across regions and product families.",
-                        "Partnered with client leadership to simulate tariff changes and delistings, directly impacting annual negotiation strategies."
+                        "Advise ~12 enterprise CPG clients across Europe, the US, and Australia on pricing strategy, RGM governance, and assortment optimization — translating AI simulation outputs into actionable commercial decisions.",
+                        "Lead pricing workshops with client leadership teams to model tariff changes, retailer delisting scenarios, and price architecture trade-offs ahead of annual negotiations.",
+                        "Manage a team of 5 product managers, applying CPG practitioner experience to shape product development priorities and translate customer feedback into platform improvements.",
+                        "Built an AI-driven process to systematically collect and synthesize customer feedback into structured product insights, accelerating the feedback-to-decision cycle across the commercial team."
                     ]
                 },
                 {
@@ -62,11 +64,11 @@ const cvData = {
                     location: "Frankfurt, Germany",
                     older: false,
                     desc: [
-                        "Orchestrated the Annual Business Planning process, successfully leading the 3-year strategic pricing roadmap to offset inflation and recover margins.",
-                        "Implemented 5 core RGM workstreams that delivered a 2% increase in operating profit (EBITDA) within 12 months.",
-                        "Optimized Germany trade investment strategy and renegotiated trade terms with top-5 retailers, improving contract conditionality by 18%.",
-                        "Deployed a new Trade Promotion Management (TPM) solution, enhancing forecast accuracy and reducing admin time by 20%.",
-                        "Restructured the commercial team (22 to 19 FTEs) and built an RGM culture through capability workshops."
+                        "Built and led the RGM function for Danone Germany, covering pricing, Price Pack Architecture, promotion strategy, trade terms, and commercial planning across a ~€1bn DACH portfolio.",
+                        "Implemented 5 RGM workstreams delivering a +2pp improvement in operating profit (EBITDA) within 12 months.",
+                        "Led the 3-year pricing roadmap during peak inflation (2022–23), protecting net revenue while recovering gross margin.",
+                        "Renegotiated commercial terms with Germany's Top-5 retailers, restructuring trade investment to improve efficiency by 18%.",
+                        "Deployed a new Trade Promotion Management (TPM) system, improving forecast accuracy and cutting planning time by 20%."
                     ]
                 },
                 {
@@ -76,10 +78,9 @@ const cvData = {
                     location: "Barcelona, Spain",
                     older: false,
                     desc: [
-                        "Led consulting engagements for Fortune 500 CPG clients, delivering a 5% revenue increase by optimizing pricing architecture and mix.",
-                        "Developed mid-term commercial plans and Go-to-Market strategies across 10+ countries.",
-                        "Secured an additional €500k revenue for a client through a targeted channel expansion strategy.",
-                        "Conducted workshops with C-suite leadership to align on transformation roadmaps."
+                        "Led RGM and commercial strategy projects for major CPG clients across Europe and Latin America, delivering an average +5% revenue uplift through pricing architecture and channel mix optimization.",
+                        "Developed 3-year commercial plans and go-to-market strategies for client businesses in 10+ countries.",
+                        "Identified and unlocked a channel expansion opportunity generating +€500k incremental revenue for a beverage client."
                     ]
                 },
                 {
@@ -89,8 +90,8 @@ const cvData = {
                     location: "Dubai, UAE",
                     older: true,
                     desc: [
-                        "Led the restructuring of a 500-person sales force across 5 MENA countries, introducing new compensation schemes and scorecards.",
-                        "Reduced Sales & Distribution (S&D) costs by 15% through logistics and procurement optimization."
+                        "Restructured a 500-person sales force across 5 MENA countries, redesigning compensation schemes and route-to-market frameworks.",
+                        "Reduced Sales & Distribution costs by 15% through logistics and procurement optimization."
                     ]
                 },
                 {
@@ -100,7 +101,7 @@ const cvData = {
                     location: "Moscow, Russia",
                     older: true,
                     desc: [
-                        "Evaluated a strategic brand extension proposal and built financial models proving risk outweighed benefit, saving a potential $300M investment."
+                        "Modelled a proposed brand extension and demonstrated the risk-to-return ratio did not justify the investment, preventing a potential $300M commitment."
                     ]
                 },
                 {
@@ -110,8 +111,8 @@ const cvData = {
                     location: "Moscow, Russia",
                     older: true,
                     desc: [
-                        "Managed a $10M sales target, collaborating with finance and operations to deliver complex enterprise solutions.",
-                        "Directed industry-specific workshops for executive customers to demonstrate business value and ROI of Microsoft platforms."
+                        "Managed a $10M annual sales target across enterprise accounts, coordinating cross-functional delivery of complex technology solutions.",
+                        "Ran executive workshops for large-account customers on business value and ROI of enterprise platforms."
                     ]
                 },
                 {
@@ -121,7 +122,7 @@ const cvData = {
                     location: "Moscow, Russia",
                     older: true,
                     desc: [
-                        "Directed the full strategic planning cycle and launched innovative tech products, overdelivering yearly results by 12%."
+                        "Led strategic planning and product launch cycles for a technology products portfolio, exceeding annual revenue targets by 12%."
                     ]
                 }
             ],
@@ -139,8 +140,8 @@ const cvData = {
                     location: "Moscow, Russia"
                 }
             ],
-            skills: ["Excel (Power Pivot & Stats)", "PowerPoint", "Microsoft Project", "Power BI", "SQL", "Python", "Buynomics Platform", "TPM Integration"],
-            languages: ["Russian (Native)", "Bulgarian (Native)", "English (Fluent)", "Spanish (Fluent)", "German (Intermediate)", "Portuguese (Intermediate)"]
+            skills: ["Excel (Power Pivot & Statistics)", "PowerPoint", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics Platform", "TPM System Integration"],
+            languages: ["Russian (Native)", "Bulgarian (Native)", "English (Fluent)", "Spanish (Fluent)", "German (B2)", "Portuguese (Intermediate)"]
         },
         de: {
             labels: {
@@ -154,24 +155,24 @@ const cvData = {
             tracks: {
                 standard: {
                     title: "Leiter Revenue Growth Management",
-                    profile: "Senior Commercial & RGM Leader mit über 20 Jahren Erfahrung im FMCG-Sektor, davon 6 Jahre als Head of RGM für DACH bei Danone. Experte in der Orchestrierung von 3-Jahres-Strategieplänen und der Optimierung von Handelsinvestitionen. Nachgewiesene Fähigkeit, transformative Veränderungen in komplexen Matrixumgebungen zu leiten. Nutzt derzeit Best-Practices im Bereich KI-gesteuerter Preisgestaltung (Buynomics), um RGM-Fähigkeiten der nächsten Generation in die operative Führung einzubringen.",
+                    profile: "Erfahrene Führungskraft in Commercial Strategy und Pricing mit 19 Jahren Berufserfahrung in Technologie, Beratung und FMCG — darunter 6 Jahre als Head of Revenue Growth Management für DACH bei Danone Deutschland. Aufbau und Leitung der gesamten RGM-Funktion: Preisstrategie, Price Pack Architecture, Handelsinvestitionen und kommerzielle Planung für ein Portfolio von ~1 Mrd. €. Aktuell bei Buynomics, einer KI-basierten Pricing-Plattform, mit Beratung von Enterprise-CPG-Kunden zu kommerzieller Strategie und Preissteuerung. Rückkehr in eine operative Führungsrolle, um RGM-Kompetenz und technologisches Know-how gemeinsam einzusetzen.",
                     competencies: [
-                        "DACH RGM Leadership & P&L Management",
-                        "Strategische Jahresplanung (AOP)",
-                        "Handelsinvestitionen & Promo-Optimierung",
-                        "Price Pack Architecture (PPA) & Mix Management",
-                        "Commercial Finance Integration"
+                        "DACH RGM-Strategie & P&L-Verantwortung",
+                        "Handelsinvestitionen & Promotionsoptimierung",
+                        "Price Pack Architecture & Mix Management",
+                        "Kommerzielle Planung & Jahresplanungsprozess (AOP)",
+                        "KI-gestützte Preisgestaltung & Commercial Technology"
                     ]
                 },
                 digital: {
-                    title: "Director für Digitale Transformation & Strategie",
-                    profile: "Strategische Führungskraft an der Schnittstelle von CPG und fortschrittlicher Technologie. Spezialist für KI-gestützte Preistransformation, TPM-Systemarchitektur und kommerzielle Prozessautomatisierung. Einzigartige Benchmarking-Erfahrung bei Buynomics zur Integration von RGM-Fähigkeiten der nächsten Generation in globale Unternehmensökosysteme.",
+                    title: "Director, Commercial Strategy & Pricing",
+                    profile: "Kommerzielle und produktseitige Führungskraft mit 19 Jahren Erfahrung in Technologie, Beratung und FMCG. Sechs Jahre Leitung des RGM bei Danone Deutschland — Preisstrategie, Handelskonditionen, TPM-Systeme und Teamaufbau. Wechsel zu Buynomics an die Schnittstelle von CPG und KI-gestützter Preisgestaltung: Beratung von Enterprise-Kunden in Europa, den USA und Australien, Führung eines Teams von 5 Produktmanagern und Aufbau KI-gesteuerter Prozesse zur kommerziellen Insight-Generierung. Verbindet operative Glaubwürdigkeit mit technologischem Praxiswissen.",
                     competencies: [
-                        "Digitale Transformation & Value Acceleration",
-                        "KI-gestützte Preisstrategien & Predictive Modeling",
-                        "Enterprise SaaS Integration (TPM & Optimierung)",
-                        "Datengetriebene Commercial Excellence",
-                        "Cross-funktionale technologische & kommerzielle Führung"
+                        "KI-gestützte Preisstrategie & Governance",
+                        "Revenue Growth Management & Commercial Excellence",
+                        "Integration von Enterprise-Pricing-Tools (TPM & SaaS)",
+                        "Datenbasierte kommerzielle Entscheidungsfindung",
+                        "Crossfunktionale kommerzielle Führung"
                     ]
                 }
             },
@@ -183,9 +184,10 @@ const cvData = {
                     location: "Frankfurt, Deutschland",
                     older: false,
                     desc: [
-                        "Einzigartige Einblicke in erstklassige RGM-Methoden bei mehreren CPG-Unternehmen; Identifizierung von Branchentrends bei Preisgestaltung und Sortimentsoptimierung.",
-                        "Leitung der Integration fortschrittlicher Preis-KPIs und Governance-Tools in Kundenökosysteme.",
-                        "Beratung von Führungskräften bei der Simulation von Tarifänderungen und Auslistungen."
+                        "Beratung von rund 12 Enterprise-CPG-Kunden in Europa, den USA und Australien zu Preisstrategie, RGM-Governance und Sortimentsoptimierung — Übersetzung von KI-Simulationsergebnissen in handlungsrelevante kommerzielle Entscheidungen.",
+                        "Leitung von Pricing-Workshops mit Führungsteams zur Modellierung von Tarifänderungen, Auslistungsszenarien und Preisarchitekturoptionen im Vorfeld von Jahresverhandlungen.",
+                        "Führung eines Teams von 5 Produktmanagern: Einbringen von CPG-Praxiswissen in Produktentwicklungsprioritäten und Übersetzung von Kundenfeedback in Plattformverbesserungen.",
+                        "Aufbau eines vollständig KI-gesteuerten Prozesses zur systematischen Erhebung und Auswertung von Kundenfeedback — Verkürzung des Feedback-to-Decision-Zyklus im kommerziellen Team."
                     ]
                 },
                 {
@@ -195,11 +197,11 @@ const cvData = {
                     location: "Frankfurt, Deutschland",
                     older: false,
                     desc: [
-                        "Orchestrierung des jährlichen Geschäftsplanungsprozesses und Leitung der 3-jährigen strategischen Preis-Roadmap zur Margenwiederherstellung.",
-                        "Implementierung von 5 RGM-Kernarbeitsbereichen, die innerhalb von 12 Monaten eine Steigerung des operativen Gewinns (EBITDA) um 2% ermöglichten.",
-                        "Optimierung der Handelsinvestitionsstrategie und Neugestaltung der Konditionen mit Top-5-Einzelhändlern (18% Verbesserung).",
-                        "Implementierung einer neuen TPM-Lösung zur Verbesserung der Prognosegenauigkeit um 20%.",
-                        "Restrukturierung des kommerziellen Teams und Aufbau einer RGM-Kultur durch Workshops."
+                        "Aufbau und Leitung der RGM-Funktion für Danone Deutschland: Preisstrategie, Price Pack Architecture, Promotionssteuerung, Handelskonditionen und kommerzielle Planung für ein DACH-Portfolio von ~1 Mrd. €.",
+                        "Einführung von 5 RGM-Kernarbeitsbereichen mit einer Steigerung des operativen Ergebnisses (EBITDA) um 2 Prozentpunkte innerhalb von 12 Monaten.",
+                        "Leitung der 3-Jahres-Preis-Roadmap in der Hochinflationsphase 2022–23 — Schutz des Nettoumsatzes bei gleichzeitiger Rohmargenwiederherstellung.",
+                        "Neugestaltung der Handelskonditionen mit den Top-5-Einzelhändlern Deutschlands, Verbesserung der Handelsinvestitionseffizienz um 18 %.",
+                        "Einführung eines neuen Trade-Promotion-Management-Systems (TPM), das die Prognosegenauigkeit verbesserte und den Planungsaufwand um 20 % reduzierte."
                     ]
                 },
                 {
@@ -209,10 +211,9 @@ const cvData = {
                     location: "Barcelona, Spanien",
                     older: false,
                     desc: [
-                        "Leitung von Beratungsprojekten für Fortune-500-Kunden mit 5% Umsatzsteigerung durch Optimierung der Preisarchitektur.",
-                        "Entwicklung mittelfristiger kommerzieller Pläne und Go-to-Market-Strategien in über 10 Ländern.",
-                        "Sicherung von zusätzlich 500.000 € Umsatz durch gezielte Vertriebskanalerweiterung.",
-                        "Durchführung von C-Suite-Workshops zur Abstimmung von Transformations-Roadmaps."
+                        "Leitung von RGM- und Commercial-Strategy-Projekten für große CPG-Kunden in Europa und Lateinamerika — durchschnittlich +5 % Umsatzsteigerung durch Optimierung von Preisarchitektur und Channel-Mix.",
+                        "Entwicklung mittelfristiger kommerzieller Pläne und Go-to-Market-Strategien für Kunden in über 10 Ländern.",
+                        "Identifizierung und Erschließung einer Vertriebskanalexpansion mit +500.000 € Zusatzumsatz für einen Getränkekunden."
                     ]
                 },
                 {
@@ -222,18 +223,18 @@ const cvData = {
                     location: "Dubai, VAE",
                     older: true,
                     desc: [
-                        "Restrukturierung einer 500-köpfigen Vertriebsmannschaft in 5 MENA-Ländern; Einführung neuer Vergütungssysteme.",
-                        "Reduzierung der Vertriebs- und Distributionskosten (S&D) um 15% durch Logistikoptimierung."
+                        "Restrukturierung einer 500-köpfigen Vertriebsmannschaft in 5 MENA-Ländern mit neuen Vergütungsmodellen und Route-to-Market-Strukturen.",
+                        "Senkung der Vertriebs- und Distributionskosten (S&D) um 15 % durch Logistik- und Beschaffungsoptimierung."
                     ]
                 },
                 {
                     company: "Philip Morris International",
-                    role: "Product Manager (MBA Internship)",
+                    role: "Product Manager (MBA-Praktikum)",
                     date: "Jun 2014 – Sep 2014",
                     location: "Moskau, Russland",
                     older: true,
                     desc: [
-                        "Bewertung einer strategischen Markenerweiterung; Finanzmodelle verhinderten eine potenzielle 300-Millionen-Dollar-Investition mit geringer Rendite."
+                        "Analyse einer strategischen Markenerweiterung: Finanzmodelle belegten ein ungünstiges Risiko-Rendite-Verhältnis und verhinderten eine potenzielle Investition von 300 Mio. USD."
                     ]
                 },
                 {
@@ -243,8 +244,8 @@ const cvData = {
                     location: "Moskau, Russland",
                     older: true,
                     desc: [
-                        "Verantwortung für ein Umsatzsetzziel von 10 Mio. USD; Bereitstellung komplexer Unternehmenslösungen.",
-                        "Leitung branchenspezifischer Workshops für Führungskräfte zur Demonstration des ROI von Technologieplattformen."
+                        "Verantwortung für ein Jahresumsatzziel von 10 Mio. USD im Enterprise-Segment, Koordination crossfunktionaler Teams für komplexe Technologieprojekte.",
+                        "Durchführung von Executive-Workshops bei Großkunden zum ROI-Nachweis von Enterprise-Plattformen."
                     ]
                 },
                 {
@@ -254,7 +255,7 @@ const cvData = {
                     location: "Moskau, Russland",
                     older: true,
                     desc: [
-                        "Leitung des strategischen Planungszyklus und Einführung innovativer Tech-Produkte (12% Zielübererfüllung)."
+                        "Leitung des strategischen Planungszyklus und Markteinführung technischer Produkte — Jahresziele um 12 % übertroffen."
                     ]
                 }
             ],
@@ -266,14 +267,14 @@ const cvData = {
                     location: "Madrid, Spanien"
                 },
                 {
-                    degree: "Master in Wirtschaft & IT",
+                    degree: "Master Wirtschaft & IT",
                     school: "Staatliche Universität für Management Moskau",
                     date: "2006",
                     location: "Moskau, Russland"
                 }
             ],
-            skills: ["Excel (Power Pivot & Stats)", "PowerPoint", "Microsoft Project", "Power BI", "SQL", "Python", "Buynomics Platform", "TPM Integration"],
-            languages: ["Russisch (Muttersprache)", "Bulgarisch (Muttersprache)", "Englisch (Fließend)", "Spanisch (Fließend)", "Deutsch (Fortgeschritten)", "Portugiesisch (Fortgeschritten)"]
+            skills: ["Excel (Power Pivot & Statistik)", "PowerPoint", "Power BI", "SQL", "Python", "Microsoft Project", "Buynomics-Plattform", "TPM-Systemintegration"],
+            languages: ["Russisch (Muttersprache)", "Bulgarisch (Muttersprache)", "Englisch (Fließend)", "Spanisch (Fließend)", "Deutsch (B2)", "Portugiesisch (Fortgeschritten)"]
         }
     }
 };
