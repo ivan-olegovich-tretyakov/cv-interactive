@@ -70,27 +70,27 @@ const cvData = {
                     ]
                 },
                 {
-                    company: "Globalpraxis Group",
-                    role: "Strategy Consulting Manager",
-                    date: "Sep 2014 – May 2017",
-                    location: "Barcelona, Spain",
-                    older: false,
-                    desc: [
-                        "Led RGM and commercial strategy projects for major CPG clients across Europe and Latin America, delivering an average +5% revenue uplift through pricing architecture and channel mix optimization.",
-                        "Developed 3-year commercial plans and go-to-market strategies for client businesses in 10+ countries.",
-                        "Identified and unlocked a channel expansion opportunity generating +€500k incremental revenue for a beverage client."
-                    ]
-                },
-                {
                     company: "Aujan Coca-Cola Bottling Company",
                     role: "Business Process Manager",
                     date: "May 2017 – May 2018",
                     location: "Dubai, UAE",
-                    older: true,
+                    older: false,
                     desc: [
                         "Led the rollout of a salesforce automation platform (order taking, shipment tracking, delivery) across 200+ field reps in 5 MENA countries — managing vendor selection, IT coordination, and field piloting.",
                         "Optimized distribution logistics including warehouse consolidation and introduction of route planning software, contributing to measurable S&D cost reduction.",
                         "Built a company-wide sales reporting system on Power BI from scratch — secured executive sponsorship, developed the data pipeline (C#/Azure Functions), and designed dashboards adopted across the commercial organization."
+                    ]
+                },
+                {
+                    company: "Globalpraxis Group",
+                    role: "Strategy Consulting Manager",
+                    date: "Sep 2014 – May 2017",
+                    location: "Barcelona, Spain",
+                    older: true,
+                    desc: [
+                        "Led RGM and commercial strategy projects for major CPG clients across Europe and Latin America, delivering an average +5% revenue uplift through pricing architecture and channel mix optimization.",
+                        "Developed 3-year commercial plans and go-to-market strategies for client businesses in 10+ countries.",
+                        "Identified and unlocked a channel expansion opportunity generating +€500k incremental revenue for a beverage client."
                     ]
                 },
                 {
@@ -202,27 +202,27 @@ const cvData = {
                     ]
                 },
                 {
-                    company: "Globalpraxis Group",
-                    role: "Strategy Consulting Manager",
-                    date: "Sep 2014 – Mai 2017",
-                    location: "Barcelona, Spanien",
-                    older: false,
-                    desc: [
-                        "Leitung von RGM- und Commercial-Strategy-Projekten für große CPG-Kunden in Europa und Lateinamerika — durchschnittlich +5 % Umsatzsteigerung durch Optimierung von Preisarchitektur und Channel-Mix.",
-                        "Entwicklung mittelfristiger kommerzieller Pläne und Go-to-Market-Strategien für Kunden in über 10 Ländern.",
-                        "Identifizierung und Erschließung einer Vertriebskanalexpansion mit +500.000 € Zusatzumsatz für einen Getränkekunden."
-                    ]
-                },
-                {
                     company: "Aujan Coca-Cola Bottling Company",
                     role: "Business Process Manager",
                     date: "Mai 2017 – Mai 2018",
                     location: "Dubai, VAE",
-                    older: true,
+                    older: false,
                     desc: [
                         "Einführung einer Salesforce-Automatisierungsplattform (Auftragserfassung, Sendungsverfolgung, Auslieferung) für über 200 Außendienstmitarbeiter in 5 MENA-Ländern — Steuerung von Anbieterauswahl, IT-Koordination und Pilotbetrieb.",
                         "Optimierung der Distributionslogistik einschließlich Lagerkonsolidierung und Einführung einer Tourenplanungssoftware mit messbarer Senkung der Vertriebs- und Distributionskosten.",
                         "Eigenständiger Aufbau eines unternehmensweiten Sales-Reporting-Systems auf Power BI — Sicherung der Executive-Unterstützung, Entwicklung der Datenpipeline (C#/Azure Functions) und Erstellung von Dashboards für die gesamte Vertriebsorganisation."
+                    ]
+                },
+                {
+                    company: "Globalpraxis Group",
+                    role: "Strategy Consulting Manager",
+                    date: "Sep 2014 – Mai 2017",
+                    location: "Barcelona, Spanien",
+                    older: true,
+                    desc: [
+                        "Leitung von RGM- und Commercial-Strategy-Projekten für große CPG-Kunden in Europa und Lateinamerika — durchschnittlich +5 % Umsatzsteigerung durch Optimierung von Preisarchitektur und Channel-Mix.",
+                        "Entwicklung mittelfristiger kommerzieller Pläne und Go-to-Market-Strategien für Kunden in über 10 Ländern.",
+                        "Identifizierung und Erschließung einer Vertriebskanalexpansion mit +500.000 € Zusatzumsatz für einen Getränkekunden."
                     ]
                 },
                 {
