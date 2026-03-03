@@ -245,6 +245,8 @@
             color: var(--accent);
         }
 
+        .role-block { display: flex; flex-direction: column; }
+
         .sidebar-section { margin-bottom: 2rem; }
 
         .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
@@ -768,7 +770,7 @@
             .controls { display: none !important; }
             body { background: #fff; padding: 0; }
             .cv-container { box-shadow: none; padding: 0; max-width: 100%; width: 100%; }
-            @page { margin: 8mm 5mm; }
+            @page { margin: 6mm 5mm; }
             .item, .exec-exp-item { break-inside: avoid; }
             .skill-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
@@ -778,7 +780,7 @@
                ══════════════════════════════════════════════════════════ */
 
             body:not(.theme-executive):not(.summary-mode) .cv-container {
-                padding: 1.25rem 1.5rem;
+                padding: 0.85rem 1.5rem;
             }
 
             /* Header: stack vertically, center everything */
@@ -815,10 +817,9 @@
                 justify-content: center;
                 font-size: 0.82rem;
                 gap: 0.5rem;
-                border-top: 1.5px solid #222;
-                border-bottom: 1.5px solid #222;
-                padding: 0.3rem 0;
-                margin: 0.2rem 0;
+                border: none;
+                padding: 0.1rem 0;
+                margin: 0.1rem 0;
                 width: 100%;
             }
             body:not(.theme-executive):not(.summary-mode) .contact-info .sep {
@@ -841,21 +842,22 @@
                 text-align: justify;
             }
 
-            /* Single-column layout with explicit section ordering */
+            /* Row-wrap layout: full-width sections stack, skills+languages sit side-by-side */
             body:not(.theme-executive):not(.summary-mode) .main-grid {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
                 gap: 0;
             }
             /* display:contents makes right-column transparent — its children
                become direct flex items of main-grid, enabling interleaved order */
             body:not(.theme-executive):not(.summary-mode) .right-column { display: contents; }
             /* Order: competencies(1) → experience(2) → education(3) → skills(4) → languages(5) */
-            body:not(.theme-executive):not(.summary-mode) .sec-competencies { order: 1; }
-            body:not(.theme-executive):not(.summary-mode) .left-column      { order: 2; }
-            body:not(.theme-executive):not(.summary-mode) .sec-education    { order: 3; }
-            body:not(.theme-executive):not(.summary-mode) .sec-skills       { order: 4; }
-            body:not(.theme-executive):not(.summary-mode) .sec-languages    { order: 5; }
+            body:not(.theme-executive):not(.summary-mode) .sec-competencies { order: 1; width: 100%; }
+            body:not(.theme-executive):not(.summary-mode) .left-column      { order: 2; width: 100%; }
+            body:not(.theme-executive):not(.summary-mode) .sec-education    { order: 3; width: 100%; }
+            body:not(.theme-executive):not(.summary-mode) .sec-skills       { order: 4; width: 50%; padding-right: 1.5rem; }
+            body:not(.theme-executive):not(.summary-mode) .sec-languages    { order: 5; width: 50%; }
             /* Core Competencies: 2-column bullet grid */
             body:not(.theme-executive):not(.summary-mode) .sec-competencies ul.bullets {
                 display: grid;
@@ -864,28 +866,55 @@
                 row-gap: 0;
             }
 
-            /* Section titles: centered all-caps with top + bottom rules */
+            /* Section titles: centered, subtle bottom rule only */
             body:not(.theme-executive):not(.summary-mode) .section-title {
                 text-align: center;
                 font-size: 0.88rem;
-                border-top: 1px solid #888;
-                border-bottom: 1px solid #888;
-                padding: 0.25rem 0;
-                margin-top: 0.3rem;
-                margin-bottom: 0.55rem;
+                border-top: none;
+                border-bottom: 1px solid #ccc;
+                padding: 0 0 0.2rem 0;
+                margin-top: 0.25rem;
+                margin-bottom: 0.45rem;
             }
 
-            /* Experience items: full-width */
-            body:not(.theme-executive):not(.summary-mode) .item          { margin-bottom: 0.7rem; }
-            body:not(.theme-executive):not(.summary-mode) .item-header   { margin-bottom: 0.05rem; }
+            /* Experience items */
+            body:not(.theme-executive):not(.summary-mode) .item          { margin-bottom: 0.5rem; }
+            /* item-header: stack role+company (line 1) and date (line 2) */
+            body:not(.theme-executive):not(.summary-mode) .item-header {
+                display: flex; flex-direction: column; margin-bottom: 0.05rem;
+            }
             body:not(.theme-executive):not(.summary-mode) .role          { font-size: 0.93rem; }
-            body:not(.theme-executive):not(.summary-mode) .company       { font-size: 0.85rem; }
-            body:not(.theme-executive):not(.summary-mode) .date-loc      { font-size: 0.79rem; }
+            body:not(.theme-executive):not(.summary-mode) .date-loc      { font-size: 0.79rem; color: #555; text-align: left; }
             body:not(.theme-executive):not(.summary-mode) ul.bullets li  {
-                font-size: 0.83rem; margin-bottom: 0.13rem; line-height: 1.4;
+                font-size: 0.83rem; margin-bottom: 0.1rem; line-height: 1.35;
             }
+            /* Role + company inline — block container so spans flow as natural inline text */
+            body:not(.theme-executive):not(.summary-mode) .role-block {
+                display: block;
+            }
+            body:not(.theme-executive):not(.summary-mode) .role-block .company {
+                font-size: 0.82rem; font-weight: 400; white-space: nowrap;
+            }
+            body:not(.theme-executive):not(.summary-mode) .role-block .company::before {
+                content: " · "; color: #999;
+            }
+            /* Cap older-role bullets at 1 */
+            body:not(.theme-executive):not(.summary-mode) .older-exp ul.bullets li:nth-child(n+2) { display: none; }
+            /* Summary: tighter line-height */
+            body:not(.theme-executive):not(.summary-mode) .summary { line-height: 1.4; }
+            /* Education: compact 1-line per entry */
+            body:not(.theme-executive):not(.summary-mode) .sec-education .item {
+                display: flex; flex-direction: row; flex-wrap: wrap;
+                align-items: baseline; gap: 0; margin-bottom: 0.2rem !important;
+            }
+            body:not(.theme-executive):not(.summary-mode) .sec-education .item > * {
+                font-size: 0.84rem !important; font-weight: normal !important;
+            }
+            body:not(.theme-executive):not(.summary-mode) .sec-education .item .role { font-weight: 600 !important; }
+            body:not(.theme-executive):not(.summary-mode) .sec-education .company::before { content: " · "; }
+            body:not(.theme-executive):not(.summary-mode) .sec-education .date-loc::before { content: " · "; }
 
-            /* Sidebar sections (full-width in single col) */
+            /* Sidebar sections */
             body:not(.theme-executive):not(.summary-mode) .sidebar-section { margin-bottom: 0.4rem; }
             body:not(.theme-executive):not(.summary-mode) .skill-tag { font-size: 0.74rem; padding: 0.15rem 0.4rem; }
 
@@ -918,8 +947,8 @@
             body:not(.theme-executive).summary-mode .contact-info {
                 order: 2; display: flex; flex-direction: row; flex-wrap: nowrap;
                 justify-content: center; font-size: 0.72rem; gap: 0.3rem;
-                border-top: 1px solid #333; border-bottom: 1px solid #333;
-                padding: 0.2rem 0; margin: 0.15rem 0; width: 100%;
+                border: none;
+                padding: 0.1rem 0; margin: 0.1rem 0; width: 100%;
             }
             body:not(.theme-executive).summary-mode .contact-info .sep { display: inline !important; }
             body:not(.theme-executive).summary-mode .title {
@@ -943,18 +972,29 @@
 
             body:not(.theme-executive).summary-mode .section-title {
                 text-align: center; font-size: 0.78rem;
-                border-top: 1px solid #888; border-bottom: 1px solid #888;
-                padding: 0.18rem 0; margin-top: 0.2rem; margin-bottom: 0.35rem;
+                border-top: none; border-bottom: 1px solid #ccc;
+                padding: 0 0 0.15rem 0; margin-top: 0.15rem; margin-bottom: 0.3rem;
             }
             body:not(.theme-executive).summary-mode .item          { margin-bottom: 0.35rem; }
-            body:not(.theme-executive).summary-mode .item-header   { margin-bottom: 0.03rem; }
+            body:not(.theme-executive).summary-mode .item-header {
+                display: flex; flex-direction: column; margin-bottom: 0.03rem;
+            }
             body:not(.theme-executive).summary-mode .role          { font-size: 0.82rem; }
-            body:not(.theme-executive).summary-mode .company       { font-size: 0.75rem; }
-            body:not(.theme-executive).summary-mode .date-loc      { font-size: 0.67rem; }
+            body:not(.theme-executive).summary-mode .date-loc      { font-size: 0.67rem; color: #555; text-align: left; }
             body:not(.theme-executive).summary-mode ul.bullets li  {
                 font-size: 0.72rem; margin-bottom: 0.05rem; line-height: 1.25;
             }
             body:not(.theme-executive).summary-mode ul.bullets li:nth-child(n+3) { display: none; }
+            /* Role + company inline — block container so spans flow as natural inline text */
+            body:not(.theme-executive).summary-mode .role-block {
+                display: block; flex: 1; min-width: 0;
+            }
+            body:not(.theme-executive).summary-mode .role-block .company {
+                font-size: 0.7rem; font-weight: 400; white-space: nowrap;
+            }
+            body:not(.theme-executive).summary-mode .role-block .company::before {
+                content: " · "; color: #999;
+            }
             body:not(.theme-executive).summary-mode .sidebar-section { margin-bottom: 0.3rem; }
             body:not(.theme-executive).summary-mode .skill-tag { font-size: 0.62rem; padding: 0.08rem 0.28rem; }
 
@@ -1177,10 +1217,12 @@
                         ${data.experience.map(exp => `
                             <div class="item ${exp.older ? 'older-exp' : ''}">
                                 <div class="item-header">
-                                    <span class="role">${exp.role}</span>
+                                    <div class="role-block">
+                                        <span class="role">${exp.role}</span>
+                                        <span class="company">${exp.company}</span>
+                                    </div>
                                     <span class="date-loc">${exp.date} | ${exp.location}</span>
                                 </div>
-                                <div class="company">${exp.company}</div>
                                 <ul class="bullets">
                                     ${exp.desc.map(d => `<li>${d}</li>`).join('')}
                                 </ul>
