@@ -841,14 +841,28 @@
                 text-align: justify;
             }
 
-            /* Single-column layout: sidebar (competencies/skills/edu/lang) first */
+            /* Single-column layout with explicit section ordering */
             body:not(.theme-executive):not(.summary-mode) .main-grid {
                 display: flex;
                 flex-direction: column;
                 gap: 0;
             }
-            body:not(.theme-executive):not(.summary-mode) .right-column { order: -1; }
-            body:not(.theme-executive):not(.summary-mode) .left-column  { order:  1; }
+            /* display:contents makes right-column transparent — its children
+               become direct flex items of main-grid, enabling interleaved order */
+            body:not(.theme-executive):not(.summary-mode) .right-column { display: contents; }
+            /* Order: competencies(1) → experience(2) → education(3) → skills(4) → languages(5) */
+            body:not(.theme-executive):not(.summary-mode) .sec-competencies { order: 1; }
+            body:not(.theme-executive):not(.summary-mode) .left-column      { order: 2; }
+            body:not(.theme-executive):not(.summary-mode) .sec-education    { order: 3; }
+            body:not(.theme-executive):not(.summary-mode) .sec-skills       { order: 4; }
+            body:not(.theme-executive):not(.summary-mode) .sec-languages    { order: 5; }
+            /* Core Competencies: 2-column bullet grid */
+            body:not(.theme-executive):not(.summary-mode) .sec-competencies ul.bullets {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 1.5rem;
+                row-gap: 0;
+            }
 
             /* Section titles: centered all-caps with top + bottom rules */
             body:not(.theme-executive):not(.summary-mode) .section-title {
@@ -917,8 +931,15 @@
                 font-size: 0.76rem; line-height: 1.35; margin-bottom: 0.2rem; text-align: justify;
             }
             body:not(.theme-executive).summary-mode .main-grid { display: flex; flex-direction: column; gap: 0; }
-            body:not(.theme-executive).summary-mode .right-column { order: -1; }
-            body:not(.theme-executive).summary-mode .left-column  { order:  1; }
+            body:not(.theme-executive).summary-mode .right-column    { display: contents; }
+            body:not(.theme-executive).summary-mode .sec-competencies { order: 1; }
+            body:not(.theme-executive).summary-mode .left-column      { order: 2; }
+            body:not(.theme-executive).summary-mode .sec-education    { order: 3; }
+            body:not(.theme-executive).summary-mode .sec-skills       { order: 4; }
+            body:not(.theme-executive).summary-mode .sec-languages    { order: 5; }
+            body:not(.theme-executive).summary-mode .sec-competencies ul.bullets {
+                display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; row-gap: 0;
+            }
 
             body:not(.theme-executive).summary-mode .section-title {
                 text-align: center; font-size: 0.78rem;
@@ -1168,19 +1189,19 @@
                     </div>
 
                     <div class="right-column">
-                        <div class="sidebar-section">
+                        <div class="sidebar-section sec-competencies">
                             <div class="section-title">${data.labels.competencies}</div>
                             <ul class="bullets">
                                 ${trackData.competencies.map(c => `<li>${c}</li>`).join('')}
                             </ul>
                         </div>
-                        <div class="sidebar-section">
+                        <div class="sidebar-section sec-skills">
                             <div class="section-title">${data.labels.skills}</div>
                             <div class="skill-list">
                                 ${data.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
                             </div>
                         </div>
-                        <div class="sidebar-section">
+                        <div class="sidebar-section sec-education">
                             <div class="section-title">${data.labels.education}</div>
                             ${data.education.map(edu => `
                                 <div class="item" style="margin-bottom:1rem;">
@@ -1190,7 +1211,7 @@
                                 </div>
                             `).join('')}
                         </div>
-                        <div class="sidebar-section">
+                        <div class="sidebar-section sec-languages">
                             <div class="section-title">${data.labels.languages}</div>
                             <div class="skill-list">
                                 ${data.languages.map(l => `<span class="skill-tag">${l}</span>`).join('')}
